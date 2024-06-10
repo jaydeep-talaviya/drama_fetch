@@ -1,0 +1,226 @@
+ 
+ -------------- celery@jay-Inspiron-15-3567 v5.2.7 (dawn-chorus)
+--- ***** ----- 
+-- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-10 14:24:10
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         dramaclick:0x7f0f36511d00
+- ** ---------- .> transport:   redis://localhost:6379//
+- ** ---------- .> results:     redis://localhost:6379/
+- *** --- * --- .> concurrency: 4 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . dramaclick.celery.debug_task
+  . get_all_genres_everyday
+  . get_new_kdrama_everyday
+  . get_new_movie_everyday
+  . get_new_person_everyday
+  . print_msg_main
+  . update_kdrama_everyday
+  . update_movie_everyday
+
+[2024-06-10 14:24:11,242: INFO/MainProcess] Connected to redis://localhost:6379//
+[2024-06-10 14:24:11,246: INFO/MainProcess] mingle: searching for neighbors
+[2024-06-10 14:24:12,255: INFO/MainProcess] mingle: all alone
+[2024-06-10 14:24:12,270: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2024-06-10 14:24:12,270: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
+[2024-06-10 14:24:12,389: ERROR/MainProcess] Received unregistered task of type 'fileshare.tasks.remove_userfile'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[21], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (79b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'fileshare.tasks.remove_userfile', 'id': '33a908d3-2315-4c5f-b57d-b9167a134cfa', 'shadow': None, 'eta': '2024-05-04T16:40:37.126102', 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '33a908d3-2315-4c5f-b57d-b9167a134cfa', 'parent_id': None, 'argsrepr': '(21,)', 'kwargsrepr': '{}', 'origin': 'gen91842@jay-Inspiron-15-3567', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'fileshare.tasks.remove_userfile'
+[2024-06-10 14:24:12,397: ERROR/MainProcess] Received unregistered task of type 'yt_download.utils.download_single_video'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["https://youtu.be/oHYtqiF537g?si=OPFrUVcxGAo6fDhl", "22", "jay"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (140b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'yt_download.utils.download_single_video', 'id': 'cda98b38-ae5a-4512-b92c-a3a5ad216817', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'cda98b38-ae5a-4512-b92c-a3a5ad216817', 'parent_id': None, 'argsrepr': "('https://youtu.be/oHYtqiF537g?si=OPFrUVcxGAo6fDhl', '22', 'jay')", 'kwargsrepr': '{}', 'origin': 'gen91842@jay-Inspiron-15-3567', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'yt_download.utils.download_single_video'
+[2024-06-10 14:24:12,402: ERROR/MainProcess] Received unregistered task of type 'yt_download.utils.download_single_video'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["https://youtu.be/oHYtqiF537g?si=OPFrUVcxGAo6fDhl", "18", "jay"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (140b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'yt_download.utils.download_single_video', 'id': '6037b4cf-8d85-46f3-a124-f1dff6b2d073', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '6037b4cf-8d85-46f3-a124-f1dff6b2d073', 'parent_id': None, 'argsrepr': "('https://youtu.be/oHYtqiF537g?si=OPFrUVcxGAo6fDhl', '18', 'jay')", 'kwargsrepr': '{}', 'origin': 'gen91842@jay-Inspiron-15-3567', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'yt_download.utils.download_single_video'
+[2024-06-10 14:24:12,406: ERROR/MainProcess] Received unregistered task of type 'yt_download.utils.download_single_video'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["https://youtube.com/watch?v=o02oOrSBVMc", "22", "jay"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (131b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'yt_download.utils.download_single_video', 'id': 'e3466007-3d5a-4043-9002-063afe9b0f90', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'e3466007-3d5a-4043-9002-063afe9b0f90', 'parent_id': None, 'argsrepr': "('https://youtube.com/watch?v=o02oOrSBVMc', '22', 'jay')", 'kwargsrepr': '{}', 'origin': 'gen91842@jay-Inspiron-15-3567', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'yt_download.utils.download_single_video'
+[2024-06-10 14:24:12,409: ERROR/MainProcess] Received unregistered task of type 'yt_download.utils.download_playlist'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["https://youtube.com/playlist?list=PLbGui_ZYuhihRg9Q3009SQaMDfXnHlqOw&si=scoAizjoctGYYLPx", "jay"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (174b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'yt_download.utils.download_playlist', 'id': 'fe0064d6-847c-4139-ab61-b74e8a9e5605', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'fe0064d6-847c-4139-ab61-b74e8a9e5605', 'parent_id': None, 'argsrepr': "('https://youtube.com/playlist?list=PLbGui_ZYuhihRg9Q3009SQaMDfXnHlqOw&si=scoAizjoctGYYLPx', 'jay')", 'kwargsrepr': '{}', 'origin': 'gen91842@jay-Inspiron-15-3567', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'yt_download.utils.download_playlist'
+[2024-06-10 14:24:12,412: INFO/MainProcess] Task get_new_person_everyday[bb1f8b45-a361-4100-a803-63a8bee5ab3b] received
+[2024-06-10 14:24:12,414: ERROR/MainProcess] Received unregistered task of type 'update_kdrama'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'update_kdrama', 'id': '59b4a66f-86f3-4bb6-9af1-a19fc7f68792', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '59b4a66f-86f3-4bb6-9af1-a19fc7f68792', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen69051@jay-Inspiron-15-3567', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'update_kdrama'
+[2024-06-10 14:24:12,417: INFO/MainProcess] Task get_all_genres_everyday[00c5d5cb-0d73-4faf-ab7f-10b33d33da5e] received
+[2024-06-10 14:24:12,420: ERROR/MainProcess] Received unregistered task of type 'update_movie'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'update_movie', 'id': '05d3579b-3c95-405a-b067-be5380ff82e6', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '05d3579b-3c95-405a-b067-be5380ff82e6', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen69051@jay-Inspiron-15-3567', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'update_movie'
+[2024-06-10 14:24:12,426: INFO/MainProcess] Task get_new_movie_everyday[bb5a968a-caa0-48cd-ac3d-b9c575d8c64f] received
+[2024-06-10 14:24:12,428: INFO/MainProcess] Task get_new_kdrama_everyday[f81f3588-48de-4cb7-9896-45a1f9c83a59] received
+[2024-06-10 14:24:14,666: ERROR/ForkPoolWorker-1] Task get_new_kdrama_everyday[f81f3588-48de-4cb7-9896-45a1f9c83a59] raised unexpected: ValueError("time data 'New' does not match format '%Y/%m/%d'")
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/tasks.py", line 51, in get_new_kdrama
+    total_new_links=get_kmovies_links_all(base_url,previous_date,today,dynamic_url)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/cron_functions.py", line 49, in get_kmovies_links_all
+    current_datetime= datetime.strptime(single_link_tag.find('a').find('strong').text, '%Y/%m/%d')
+  File "/usr/lib/python3.8/_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "/usr/lib/python3.8/_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data 'New' does not match format '%Y/%m/%d'
+[2024-06-10 14:24:14,666: ERROR/ForkPoolWorker-3] Task get_new_movie_everyday[bb5a968a-caa0-48cd-ac3d-b9c575d8c64f] raised unexpected: ValueError("time data 'New' does not match format '%Y/%m/%d'")
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/tasks.py", line 66, in get_new_movie
+    total_new_links=get_movies_links_all(base_url,previous_date,today,dynamic_url)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/cron_functions.py", line 116, in get_movies_links_all
+    current_datetime= datetime.strptime(single_link_tag.find('a').find('strong').text, '%Y/%m/%d')
+  File "/usr/lib/python3.8/_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "/usr/lib/python3.8/_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data 'New' does not match format '%Y/%m/%d'
+[2024-06-10 14:24:15,379: WARNING/ForkPoolWorker-2] All The Genres are Updated!
+[2024-06-10 14:24:15,383: INFO/ForkPoolWorker-2] Task get_all_genres_everyday[00c5d5cb-0d73-4faf-ab7f-10b33d33da5e] succeeded in 2.957129916998383s: None
+[2024-06-10 14:25:01,285: WARNING/ForkPoolWorker-4] Got The all New Person from last 7 days!
+[2024-06-10 14:25:01,287: INFO/ForkPoolWorker-4] Task get_new_person_everyday[bb1f8b45-a361-4100-a803-63a8bee5ab3b] succeeded in 48.87097381100102s: None
