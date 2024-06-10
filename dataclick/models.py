@@ -9,9 +9,23 @@ import requests
 class Genres(models.Model):
     genre_name=models.CharField(max_length=100,null=True,blank=True)
 
+    class Meta:
+        # db_table='genre'
+        verbose_name='Genre'
+
+    def __str__(self):
+        return self.genre_name
+
 class TvChannel(models.Model):
     tv_channel=models.CharField(max_length=500,null=True,blank=True)
     tv_channel_link=models.CharField(max_length=250,null=True,blank=True)
+
+    class Meta:
+        # db_table='tv_channel'
+        verbose_name='TV Channel'
+
+    def __str__(self):
+        return self.tv_channel
 
 class CastOfDrama(models.Model):
     cast=models.ForeignKey('Person',on_delete=models.DO_NOTHING,null=True,blank=True)
@@ -19,10 +33,8 @@ class CastOfDrama(models.Model):
     extended_cast=models.BooleanField(default=False)
 
 class Drama(models.Model):
-
     drama_name=models.CharField(max_length=200,null=True,blank=True)
     image_url = models.URLField(blank=True,null=True)
-    # work_type= models.CharField(max_length=100,choices=work_types)
     other_names=models.CharField(max_length=900,null=True,blank=True)
     genres=models.ManyToManyField(Genres,null=True,blank=True)
     tv_channel=models.ForeignKey(TvChannel,on_delete=models.DO_NOTHING,null=True,blank=True)
@@ -33,7 +45,7 @@ class Drama(models.Model):
     airing_dates_start=models.CharField(max_length=500,null=True,blank=True)
     airing_dates_end=models.CharField(max_length=500,null=True,blank=True)
     official_website=models.CharField(max_length=500,null=True,blank=True)
-    last_paragraph=models.TextField(null=True,blank=True)
+    last_paragraph=models.TextField(null=True,blank=True) # contain episodes
     drama_link=models.CharField(max_length=500,null=True,blank=True)
 
 
@@ -48,12 +60,9 @@ class DramaImages(models.Model):
 class Movie(models.Model):
 
     movie_name=models.CharField(max_length=200,null=True,blank=True)
-    # main_theme_img=models.ImageField(upload_to='movie_themes',blank=True,null=True)
     image_url = models.URLField(blank=True,null=True)
-    # work_type= models.CharField(max_length=100,choices=work_types)
     other_names=models.CharField(max_length=900,null=True,blank=True)
     genres=models.ManyToManyField(Genres,null=True,blank=True)
-    # tv_channel=models.ForeignKey(TvChannel,on_delete=models.DO_NOTHING,null=True,blank=True)
     directed_by=models.ManyToManyField('Person',related_name='directors_of_movie')
     written_by=models.ManyToManyField('Person',related_name='writters_of_movie')
     casts=models.ManyToManyField('CastOfDrama',related_name='casts_of_movie')

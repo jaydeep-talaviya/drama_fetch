@@ -11,18 +11,16 @@ from .helper_functions import *
 
 def get_genre_list(url):
     nest_asyncio.apply()
-#     dr = webdriver.Chrome()
-#     dr.get(url)
     session = HTMLSession()
     r = session.get(url)
     html_str = r.text
     soup = BeautifulSoup(html_str, 'html.parser')
     selected_all_genre=soup.find('select',attrs={'name':'genre'})
     all_options=selected_all_genre.find_all('option')
-    all_genres={}
+    print("All Genres",all_options)
     for single_option in all_options:
         if single_option.text !="-" and not Genres.objects.filter(genre_name=single_option.text):
-                genre=Genres.objects.create(genre_name=single_option.text)
+            Genres.objects.create(genre_name=single_option.text)
 
 
 
