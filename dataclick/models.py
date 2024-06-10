@@ -19,12 +19,10 @@ class CastOfDrama(models.Model):
     extended_cast=models.BooleanField(default=False)
 
 class Drama(models.Model):
-    work_types=[('drama','Drama'),
-                ('movie','Movie')
-    ]
+
     drama_name=models.CharField(max_length=200,null=True,blank=True)
     image_url = models.URLField(blank=True,null=True)
-    work_type= models.CharField(max_length=100,choices=work_types)
+    # work_type= models.CharField(max_length=100,choices=work_types)
     other_names=models.CharField(max_length=900,null=True,blank=True)
     genres=models.ManyToManyField(Genres,null=True,blank=True)
     tv_channel=models.ForeignKey(TvChannel,on_delete=models.DO_NOTHING,null=True,blank=True)

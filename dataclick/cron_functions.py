@@ -150,7 +150,6 @@ def get_single_drama_info(base_url,single_drama_link):
 
     #image
     main_theme_img='https:'+image_div.find('img').attrs['src']
-    work_type="drama"
     main_info_div=main_content_div.find('div',attrs={"class":"work_info"})
 
     # Name
@@ -262,7 +261,6 @@ def get_single_drama_info(base_url,single_drama_link):
 #       create new drama from here
         drama=Drama(drama_name=drama_name
                     ,image_url=main_theme_img,
-                    work_type=work_type,
                     other_names=other_names,
                     drama_link=str(base_url+'/'+single_drama_link),
 #     #                 genres=genres
@@ -303,7 +301,6 @@ def get_single_movie_info(base_url,single_movie_link):
 
     #image
     main_theme_img='https:'+image_div.find('img').attrs['src']
-    work_type="movie"
     main_info_div=main_content_div.find('div',attrs={"class":"work_info"})
     # Name
     movie_name=main_info_div.find('h1').text
@@ -454,7 +451,6 @@ def update_single_drama_info(base_url,single_drama_link):
 
     #image
     main_theme_img='https:'+image_div.find('img').attrs['src']
-    work_type="drama"
     main_info_div=main_content_div.find('div',attrs={"class":"work_info"})
     # Name
     drama_name=main_info_div.find('h1').text
@@ -553,7 +549,6 @@ def update_single_drama_info(base_url,single_drama_link):
 #         create new drama from here
         current_drama.drama_name=drama_name
 #         current_drama.image_url=main_theme_img
-        current_drama.work_type=work_type
         current_drama.tv_channel=tv_channel
         current_drama.airing_dates_start=airing_dates_start
         current_drama.airing_dates_end=airing_dates_end
@@ -595,7 +590,6 @@ def update_single_movie_info(base_url,single_movie_link):
     #image
 
     # main_theme_img='https:'+image_div.find('img').attrs['src']
-    work_type="movie"
     main_info_div=main_content_div.find('div',attrs={"class":"work_info"})
     # Name
     movie_name=main_info_div.find('h1').text

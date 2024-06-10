@@ -1,7 +1,1 @@
-[2024-06-10 14:24:10,410: INFO/MainProcess] beat: Starting...
-[2024-06-10 14:24:10,601: INFO/MainProcess] Scheduler: Sending due task Get-All-Person-Daily (get_new_person_everyday)
-[2024-06-10 14:24:10,696: INFO/MainProcess] Scheduler: Sending due task Update-All-Drama-Daily (update_kdrama)
-[2024-06-10 14:24:10,717: INFO/MainProcess] Scheduler: Sending due task Get-All-Genres-Daily (get_all_genres_everyday)
-[2024-06-10 14:24:10,725: INFO/MainProcess] Scheduler: Sending due task Update-All-Movie-Daily (update_movie)
-[2024-06-10 14:24:10,732: INFO/MainProcess] Scheduler: Sending due task Get-All-Movie-Daily (get_new_movie_everyday)
-[2024-06-10 14:24:10,754: INFO/MainProcess] Scheduler: Sending due task Get-All-Kdrama-Daily (get_new_kdrama_everyday)
+[2024-06-10 14:45:13,964: INFO/MainProcess] beat: Starting...
