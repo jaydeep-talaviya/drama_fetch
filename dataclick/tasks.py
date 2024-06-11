@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 import datetime
 import time
-from .cron_functions import (get_genre_list,get_kmovies_links_all,
+from .cron_functions import (get_genre_list,get_companies_list,get_kmovies_links_all,
                             get_person_links_all,get_movies_links_all,
                             get_single_drama_info,
                             get_single_movie_info,
@@ -22,7 +22,13 @@ def print_message(message, *args, **kwargs):
 def get_new_genre(*args, **kwargs):
     base_url = 'https://www.hancinema.net/all_korean_movies_dramas.php'
     get_genre_list(base_url)
-    print(f"All The Genres are Updated!")
+    print(f"All The Genres are Fetched!")
+
+@shared_task(name = "get_all_company_everyday")
+def get_new_companies(*args, **kwargs):
+    base_url = 'https://www.hancinema.net/korean_entertainment_companies.php'
+    get_companies_list(base_url)
+    print(f"All The Companies are Fetched!")
 
 
 @shared_task(name = "get_new_person_everyday")

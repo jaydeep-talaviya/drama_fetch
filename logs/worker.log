@@ -1,10 +1,10 @@
  
  -------------- celery@jay-Inspiron-15-3567 v5.2.7 (dawn-chorus)
 --- ***** ----- 
--- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-10 15:06:26
+-- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-11 01:32:33
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         dramaclick:0x7fc1e371cd00
+- ** ---------- .> app:         dramaclick:0x7fc5215f1d00
 - ** ---------- .> transport:   redis://localhost:6379//
 - ** ---------- .> results:     redis://localhost:6379/
 - *** --- * --- .> concurrency: 4 (prefork)
@@ -16,6 +16,7 @@
 
 [tasks]
   . dramaclick.celery.debug_task
+  . get_all_company_everyday
   . get_all_genres_everyday
   . get_new_kdrama_everyday
   . get_new_movie_everyday
@@ -24,17 +25,14 @@
   . update_kdrama_everyday
   . update_movie_everyday
 
-[2024-06-10 15:06:26,870: INFO/MainProcess] Connected to redis://localhost:6379//
-[2024-06-10 15:06:26,873: INFO/MainProcess] mingle: searching for neighbors
-[2024-06-10 15:06:27,887: INFO/MainProcess] mingle: all alone
-[2024-06-10 15:06:27,901: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+[2024-06-11 01:32:33,912: INFO/MainProcess] Connected to redis://localhost:6379//
+[2024-06-11 01:32:33,917: INFO/MainProcess] mingle: searching for neighbors
+[2024-06-11 01:32:34,930: INFO/MainProcess] mingle: all alone
+[2024-06-11 01:32:34,940: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
             leak, never use this setting in production environments!
   warnings.warn('''Using settings.DEBUG leads to a memory
 
-[2024-06-10 15:06:27,901: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
-[2024-06-10 15:06:49,333: INFO/MainProcess] Task get_all_genres_everyday[2cd15d97-7671-48d7-b23d-362019553001] received
-[2024-06-10 15:06:51,088: WARNING/ForkPoolWorker-4] All Genres
-[2024-06-10 15:06:51,089: WARNING/ForkPoolWorker-4]  
-[2024-06-10 15:06:51,090: WARNING/ForkPoolWorker-4] [<option value="">-</option>, <option value="action">Action</option>, <option value="aventure">Adventure</option>, <option value="vieillesse">Aging</option>, <option value="animation">Animation</option>, <option value="Anthologie">Anthology</option>, <option value="FilmSonore">Audio Movie</option>, <option value="biographie">Biography</option>, <option value="blboyslove">BL - Boys' Love</option>, <option value="ComedieNoire">Black comedy</option>, <option value="Affaires">Business</option>, <option value="Casse">Caper</option>, <option value="chronique">Chronicle</option>, <option value="comedie">Comedy</option>, <option value="RecitInitiatique">Coming-of-age</option>, <option value="conceptuel">Conceptual</option>, <option value="Costume">Costume</option>, <option value="courtdejustice">Court</option>, <option value="crime">Crime</option>, <option value="Routine">Daily life</option>, <option value="Dance">Dance</option>, <option value="HumourNoir">Dark humor</option>, <option value="policier">Detective</option>, <option value="desastrenaturel">Disaster</option>, <option value="documentaire">Documentary</option>, <option value="drame">Drama</option>, <option value="Dystopie">Dystopia</option>, <option value="education">Education</option>, <option value="emotionnel">Emotional</option>, <option value="erotic">Erotic</option>, <option value="Exorcisme">Exorcism</option>, <option value="experimental">Experimental</option>, <option value="famille">Family</option>, <option value="fantaisie">Fantasy</option>, <option value="peur">Fear</option>, <option value="filmnoir">Film noir</option>, <option value="Amitie">Friendship</option>, <option value="glboyslove">GL - Girls' Love</option>, <option value="heroique">Heroic</option>, <option value="historique">Historical</option>, <option value="horreur">Horror</option>, <option value="humain">Human</option>, <option value="HistoireImaginaire">Imaginary History</option>, <option value="enquete">Investigation</option>, <option value="iptv">IPTV - Internet TV</option>, <option value="kungfu">Kung Fu</option>, <option value="legal">Legal</option>, <option value="artsmartiaux">Martial arts</option>, <option value="medical">Medical</option>, <option value="melodrame">Melodrama</option>, <option value="Mental">Mental/psychologic</option>, <option value="Militaire">Military</option>, <option value="musique">Music</option>, <option value="comediemusicale">Musical</option>, <option value="mystere">Mystery</option>, <option value="occulte">Occult</option>, <option value="Bureau">Office</option>, <option value="compilation">Omnibus</option>, <option value="Politique">Political</option>, <option value="Postapocalypte">Post-apocalyptic</option>, <option value="Provocant">Provocative (Makjang)</option>, <option value="Psychodrame">Psychodrama</option>, <option value="Psychologique">Psychological</option>, <option value="Reincarnation">Reincarnation</option>, <option value="religieux">Religious</option>, <option value="Vengeance">Revenge</option>, <option value="roadmovie">Road movie</option>, <option value="romantique">Romance</option>, <option value="romance">Romantic comedy</option>, <option value="Satire">Satire</option>, <option value="ecole">School</option>, <option value="sciencefiction">Science-Fiction</option>, <option value="scientifique">Scientific</option>, <option value="sensuel">Sensual</option>, <option value="courtmetrage">Short film</option>, <option value="Spectacle">Show/Performance</option>, <option value="sitcom">Sitcom</option>, <option value="social">Social</option>, <option value="sports">Sports</option>, <option value="espionnage">Spy</option>, <option value="CaptationTheatrale">Stage live captation</option>, <option value="Supernaturel">Supernatural</option>, <option value="supsense">Thriller</option>, <option value="voyagetemps">Time Slip/Time Travel</option>, <option value="Universite">University</option>, <option value="Vampire">Vampire</option>, <option value="dramavariete">Variety drama</option>, <option value="violent">Violent</option>, <option value="guere">War</option>, <option value="webdrama">Web-drama</option>, <option value="webmovie">Web-movie</option>, <option value="western">Western</option>, <option value="jeunesse">Youth</option>, <option value="Zombie">Zombie</option>]
-[2024-06-10 15:06:51,155: WARNING/ForkPoolWorker-4] All The Genres are Updated!
-[2024-06-10 15:06:51,157: INFO/ForkPoolWorker-4] Task get_all_genres_everyday[2cd15d97-7671-48d7-b23d-362019553001] succeeded in 1.822527109998191s: None
+[2024-06-11 01:32:34,940: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
+[2024-06-11 01:32:46,217: INFO/MainProcess] Task get_all_company_everyday[ff9fff32-4321-43e2-9b5e-14df21b1cb70] received
+[2024-06-11 01:32:50,958: WARNING/ForkPoolWorker-4] All The Companies are Fetched!
+[2024-06-11 01:32:50,960: INFO/ForkPoolWorker-4] Task get_all_company_everyday[ff9fff32-4321-43e2-9b5e-14df21b1cb70] succeeded in 4.741898060000494s: None

@@ -41,12 +41,11 @@ class GenresLists(APIView):
         serializer=GenresSerializer(all_genres,many=True)
         return Response(serializer.data)
 
-
 class TvChannelsLists(APIView):
 
     def get(self, request, format=None):
         """
-        Return a list of all users.
+        Return a list of all tv channels.
         """
         all_channel=TvChannel.objects.all()
         serializer=TvChannelSerializer(all_channel,many=True)

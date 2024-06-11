@@ -30,6 +30,11 @@ app.conf.beat_schedule = {
         'schedule': crontab(hour=22, minute=30),
         'args': ()
     },
+    'Get-All-Companies-Daily': {
+        'task': 'get_all_company_everyday',
+        'schedule': crontab(hour=23, minute=30),
+        'args': ()
+    },
     'Get-All-Person-Daily': {
         'task': 'get_new_person_everyday',
         'schedule':crontab(hour=23, minute=30),

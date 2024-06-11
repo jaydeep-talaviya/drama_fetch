@@ -22,7 +22,23 @@ def get_genre_list(url):
         if single_option.text !="-" and not Genres.objects.filter(genre_name=single_option.text):
             Genres.objects.create(genre_name=single_option.text)
 
-
+# Get All the compainies
+def get_companies_list(url,next_page=None):
+    nest_asyncio.apply()
+    session = HTMLSession()
+    r = session.get(next_page if next_page else url)
+    html_str = r.text
+    soup = BeautifulSoup(html_str, 'html.parser')
+    total_companies = soup.find('ul',attrs={'class':'company_list'})
+    companies = total_companies.find_all('a')
+    for company in companies:
+        if company.text.find('Next ›') == -1 and company.text.find('‹ Previous') == -1:
+            link = 'https://www.hancinema.net/'+company.attrs.get('href')
+            name = company.text
+            TvChannel.objects.get_or_create(tv_channel=name,tv_channel_link=link)
+        elif company.text.find('Next ›') == 0 and company.text.find('‹ Previous') == -1:
+            next_page = 'https://www.hancinema.net/'+ company.attrs.get('href')
+            get_companies_list(url,next_page)
 
 
 #######################################################################3
