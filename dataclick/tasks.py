@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 import datetime
 import time
-from .cron_functions import (get_genre_list,get_companies_list,get_kmovies_links_all,
+from .cron_functions import (get_genre_list,get_companies_list,get_kdrama_links_all,
                             get_person_links_all,get_movies_links_all,
                             get_single_drama_info,
                             get_single_movie_info,
@@ -47,18 +47,26 @@ def get_new_person(*args, **kwargs):
 
 
 @shared_task(name = "get_new_kdrama_everyday")
-def get_new_kdrama(*args, **kwargs):
-    next_two_year=datetime.today().year+2
-    dynamic_url='https://www.hancinema.net/all_korean_movies_dramas.php?srch=1&year_start=1936&year_end='+str(next_two_year)+'&genre=&work_type=drama&sort=recently_added'
-    previous_date=datetime.today()-timedelta(days=7)
-    today=datetime.today()
+def get_new_upcomming_kdrama(*args, **kwargs):
+    dynamic_url='https://www.hancinema.net/upcoming-korean-dramas.php'
     base_url='https://www.hancinema.net'
-
-    total_new_links=get_kmovies_links_all(base_url,previous_date,today,dynamic_url)
+    total_new_links=get_kdrama_links_all(base_url,dynamic_url)
     for single_drama in total_new_links:
         get_single_drama_info(base_url,single_drama)
 
     print(f"Got The all New drama from last 7 days!")
+
+
+@shared_task(name = "get_all_kdrama_once")
+def get_all_kdrama(*args, **kwargs):
+    dynamic_url='https://www.hancinema.net/all_korean_dramas.php'
+    base_url='https://www.hancinema.net'
+    total_new_links=get_kdrama_links_all(base_url,dynamic_url)
+    print(" Total Links...",len(total_new_links))
+    for single_drama in total_new_links:
+        get_single_drama_info(base_url,single_drama)
+
+    print(f"Got The all drama !!! ")
 
 
 @shared_task(name = "get_new_movie_everyday")
@@ -83,8 +91,9 @@ def update_kdrama(*args, **kwargs):
     base_url='https://www.hancinema.net'
     updatable_kdrama=Drama.objects.all()
     for i in updatable_kdrama:
-        result=is_date(i.airing_dates_start)
-        if not result:
+        start_date =is_date(i.airing_dates_start)
+        end_date = is_date(i.airing_dates_end) if airing_dates_end else False
+        if not start_date or (i.airing_dates_end != False and not end_date):
             print(base_url,i.drama_link)
             update_single_drama_info(base_url,i.drama_link)
 

@@ -44,18 +44,27 @@ class Drama(models.Model):
     extended_casts=models.ManyToManyField('CastOfDrama',related_name='extendedcasts')
     airing_dates_start=models.CharField(max_length=500,null=True,blank=True)
     airing_dates_end=models.CharField(max_length=500,null=True,blank=True)
-    official_website=models.CharField(max_length=500,null=True,blank=True)
     last_paragraph=models.TextField(null=True,blank=True) # contain episodes
     drama_link=models.CharField(max_length=500,null=True,blank=True)
 
+    class Meta:
+        # db_table='drama'
+        verbose_name='Drama'
 
-
+    def __str__(self):
+        return self.drama_name
 
 class DramaImages(models.Model):
     # image_file = models.ImageField(upload_to='drama_images',blank=True,null=True)
     image_url = models.URLField(blank=True,null=True)
     drama=models.ForeignKey(Drama,on_delete=models.CASCADE,null=True,blank=True)
 
+    class Meta:
+        # db_table='drama_image'
+        verbose_name='Drama Image'
+
+    def __str__(self):
+        return self.drama.drama_name + "'s image"
 
 class Movie(models.Model):
 
@@ -80,6 +89,10 @@ class MovieImages(models.Model):
 
 class Jobs(models.Model):
     job_name=models.CharField(max_length=100,null=True,blank=True)
+
+    class Meta:
+        # db_table='job'
+        verbose_name = 'Job'
 
     def __str__(self):
         return self.job_name

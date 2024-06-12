@@ -1,10 +1,10 @@
  
  -------------- celery@jay-Inspiron-15-3567 v5.2.7 (dawn-chorus)
 --- ***** ----- 
--- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-11 01:32:33
+-- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-11 15:27:41
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         dramaclick:0x7fc5215f1d00
+- ** ---------- .> app:         dramaclick:0x7fa1b62c0d00
 - ** ---------- .> transport:   redis://localhost:6379//
 - ** ---------- .> results:     redis://localhost:6379/
 - *** --- * --- .> concurrency: 4 (prefork)
@@ -18,6 +18,7 @@
   . dramaclick.celery.debug_task
   . get_all_company_everyday
   . get_all_genres_everyday
+  . get_all_kdrama_once
   . get_new_kdrama_everyday
   . get_new_movie_everyday
   . get_new_person_everyday
@@ -25,14 +26,2277 @@
   . update_kdrama_everyday
   . update_movie_everyday
 
-[2024-06-11 01:32:33,912: INFO/MainProcess] Connected to redis://localhost:6379//
-[2024-06-11 01:32:33,917: INFO/MainProcess] mingle: searching for neighbors
-[2024-06-11 01:32:34,930: INFO/MainProcess] mingle: all alone
-[2024-06-11 01:32:34,940: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+[2024-06-11 15:27:41,853: INFO/MainProcess] Connected to redis://localhost:6379//
+[2024-06-11 15:27:41,860: INFO/MainProcess] mingle: searching for neighbors
+[2024-06-11 15:27:42,883: INFO/MainProcess] mingle: all alone
+[2024-06-11 15:27:42,923: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
             leak, never use this setting in production environments!
   warnings.warn('''Using settings.DEBUG leads to a memory
 
-[2024-06-11 01:32:34,940: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
-[2024-06-11 01:32:46,217: INFO/MainProcess] Task get_all_company_everyday[ff9fff32-4321-43e2-9b5e-14df21b1cb70] received
-[2024-06-11 01:32:50,958: WARNING/ForkPoolWorker-4] All The Companies are Fetched!
-[2024-06-11 01:32:50,960: INFO/ForkPoolWorker-4] Task get_all_company_everyday[ff9fff32-4321-43e2-9b5e-14df21b1cb70] succeeded in 4.741898060000494s: None
+[2024-06-11 15:27:42,923: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
+[2024-06-11 15:27:56,767: INFO/MainProcess] Task get_all_kdrama_once[47bfece5-e84d-4b02-936c-ab53e18cf64b] received
+[2024-06-11 15:27:59,298: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php
+[2024-06-11 15:28:02,392: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=2
+[2024-06-11 15:28:03,968: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=3
+[2024-06-11 15:28:07,730: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=4
+[2024-06-11 15:28:09,245: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=5
+[2024-06-11 15:28:11,089: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=6
+[2024-06-11 15:28:14,035: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=7
+[2024-06-11 15:28:17,053: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=8
+[2024-06-11 15:28:21,036: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=9
+[2024-06-11 15:28:23,166: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=10
+[2024-06-11 15:28:28,084: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=11
+[2024-06-11 15:28:30,457: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=12
+[2024-06-11 15:28:31,938: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=13
+[2024-06-11 15:28:35,409: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=14
+[2024-06-11 15:28:37,077: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=15
+[2024-06-11 15:28:38,638: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=16
+[2024-06-11 15:28:39,960: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=17
+[2024-06-11 15:28:41,665: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=18
+[2024-06-11 15:28:43,228: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=19
+[2024-06-11 15:28:45,085: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=20
+[2024-06-11 15:28:48,483: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=21
+[2024-06-11 15:28:52,783: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=22
+[2024-06-11 15:28:54,258: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=23
+[2024-06-11 15:28:56,953: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=24
+[2024-06-11 15:28:59,607: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=25
+[2024-06-11 15:29:05,158: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=26
+[2024-06-11 15:29:12,858: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=27
+[2024-06-11 15:29:14,370: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=28
+[2024-06-11 15:29:18,155: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=29
+[2024-06-11 15:29:22,536: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=30
+[2024-06-11 15:29:24,345: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=31
+[2024-06-11 15:29:26,594: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=32
+[2024-06-11 15:29:29,463: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=33
+[2024-06-11 15:29:32,966: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=34
+[2024-06-11 15:29:34,935: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=35
+[2024-06-11 15:29:38,480: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=36
+[2024-06-11 15:29:42,829: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=37
+[2024-06-11 15:29:45,343: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=38
+[2024-06-11 15:29:48,176: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=39
+[2024-06-11 15:29:50,656: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=40
+[2024-06-11 15:29:53,467: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=41
+[2024-06-11 15:29:55,064: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=42
+[2024-06-11 15:29:57,099: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=43
+[2024-06-11 15:29:58,570: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=44
+[2024-06-11 15:30:02,689: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=45
+[2024-06-11 15:30:04,530: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=46
+[2024-06-11 15:30:11,018: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=47
+[2024-06-11 15:30:12,740: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=48
+[2024-06-11 15:30:16,514: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=49
+[2024-06-11 15:30:18,057: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=50
+[2024-06-11 15:30:25,524: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=51
+[2024-06-11 15:30:27,017: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=52
+[2024-06-11 15:30:29,778: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=53
+[2024-06-11 15:30:42,483: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=54
+[2024-06-11 15:30:47,950: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=55
+[2024-06-11 15:30:49,425: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=56
+[2024-06-11 15:30:54,236: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=57
+[2024-06-11 15:30:57,521: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=58
+[2024-06-11 15:31:00,064: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=59
+[2024-06-11 15:31:03,233: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=60
+[2024-06-11 15:31:05,913: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=61
+[2024-06-11 15:31:07,401: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=62
+[2024-06-11 15:31:13,241: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=63
+[2024-06-11 15:31:27,627: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=64
+[2024-06-11 15:31:30,512: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=65
+[2024-06-11 15:31:33,768: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=66
+[2024-06-11 15:31:38,959: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=67
+[2024-06-11 15:31:40,464: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=68
+[2024-06-11 15:31:42,212: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=69
+[2024-06-11 15:31:45,020: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=70
+[2024-06-11 15:31:48,373: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=71
+[2024-06-11 15:31:52,454: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=72
+[2024-06-11 15:31:57,416: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=73
+[2024-06-11 15:32:00,102: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=74
+[2024-06-11 15:32:04,550: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=75
+[2024-06-11 15:32:07,094: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=76
+[2024-06-11 15:32:10,927: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=77
+[2024-06-11 15:32:15,135: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=78
+[2024-06-11 15:32:17,625: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=79
+[2024-06-11 15:32:21,327: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=80
+[2024-06-11 15:32:22,827: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=81
+[2024-06-11 15:32:24,401: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=82
+[2024-06-11 15:32:28,215: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=83
+[2024-06-11 15:32:38,119: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=84
+[2024-06-11 15:32:42,329: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=85
+[2024-06-11 15:32:44,424: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=86
+[2024-06-11 15:32:49,599: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=87
+[2024-06-11 15:32:52,461: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=88
+[2024-06-11 15:32:53,957: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=89
+[2024-06-11 15:33:00,482: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=90
+[2024-06-11 15:33:02,113: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=91
+[2024-06-11 15:33:06,060: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=92
+[2024-06-11 15:33:09,264: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=93
+[2024-06-11 15:33:11,235: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=94
+[2024-06-11 15:33:18,461: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=95
+[2024-06-11 15:33:20,203: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=96
+[2024-06-11 15:33:22,505: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=97
+[2024-06-11 15:33:25,006: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=98
+[2024-06-11 15:33:26,471: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=99
+[2024-06-11 15:33:31,767: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=100
+[2024-06-11 15:33:35,896: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=101
+[2024-06-11 15:33:40,298: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=102
+[2024-06-11 15:33:41,915: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=103
+[2024-06-11 15:33:43,979: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=104
+[2024-06-11 15:33:46,091: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=105
+[2024-06-11 15:33:47,709: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=106
+[2024-06-11 15:33:50,325: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=107
+[2024-06-11 15:33:53,617: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=108
+[2024-06-11 15:33:55,932: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=109
+[2024-06-11 15:33:58,773: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=110
+[2024-06-11 15:34:01,753: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=111
+[2024-06-11 15:34:04,285: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=112
+[2024-06-11 15:34:06,334: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=113
+[2024-06-11 15:34:08,068: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=114
+[2024-06-11 15:34:10,063: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=115
+[2024-06-11 15:34:21,463: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=116
+[2024-06-11 15:34:23,281: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=117
+[2024-06-11 15:34:24,692: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=118
+[2024-06-11 15:34:29,268: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=119
+[2024-06-11 15:34:33,259: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=120
+[2024-06-11 15:34:35,902: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=121
+[2024-06-11 15:34:42,268: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=122
+[2024-06-11 15:34:43,942: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=123
+[2024-06-11 15:34:49,356: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=124
+[2024-06-11 15:34:52,162: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=125
+[2024-06-11 15:34:54,426: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=126
+[2024-06-11 15:34:57,401: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=127
+[2024-06-11 15:34:59,760: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=128
+[2024-06-11 15:35:02,353: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=129
+[2024-06-11 15:35:03,869: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=130
+[2024-06-11 15:35:07,508: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=131
+[2024-06-11 15:35:12,817: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=132
+[2024-06-11 15:35:16,197: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=133
+[2024-06-11 15:35:18,217: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=134
+[2024-06-11 15:35:21,576: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=135
+[2024-06-11 15:35:25,106: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=136
+[2024-06-11 15:35:35,801: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=137
+[2024-06-11 15:35:39,687: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=138
+[2024-06-11 15:35:41,894: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=139
+[2024-06-11 15:35:43,391: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=140
+[2024-06-11 15:35:44,952: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=141
+[2024-06-11 15:35:47,335: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=142
+[2024-06-11 15:35:55,670: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=143
+[2024-06-11 15:35:58,488: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=144
+[2024-06-11 15:36:01,285: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=145
+[2024-06-11 15:36:02,809: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=146
+[2024-06-11 15:36:07,108: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=147
+[2024-06-11 15:36:09,312: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=148
+[2024-06-11 15:36:12,469: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=149
+[2024-06-11 15:36:18,331: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=150
+[2024-06-11 15:36:20,642: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=151
+[2024-06-11 15:36:22,950: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=152
+[2024-06-11 15:36:24,555: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=153
+[2024-06-11 15:36:26,963: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=154
+[2024-06-11 15:36:29,609: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=155
+[2024-06-11 15:36:31,079: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=156
+[2024-06-11 15:36:33,668: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=157
+[2024-06-11 15:36:35,372: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=158
+[2024-06-11 15:36:39,398: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=159
+[2024-06-11 15:36:41,841: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=160
+[2024-06-11 15:36:43,779: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=161
+[2024-06-11 15:36:45,726: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=162
+[2024-06-11 15:36:49,103: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=163
+[2024-06-11 15:36:52,552: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=164
+[2024-06-11 15:36:54,123: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=165
+[2024-06-11 15:36:55,690: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=166
+[2024-06-11 15:36:57,456: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=167
+[2024-06-11 15:36:58,949: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=168
+[2024-06-11 15:37:00,828: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=169
+[2024-06-11 15:37:03,921: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=170
+[2024-06-11 15:37:06,479: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=171
+[2024-06-11 15:37:09,541: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=172
+[2024-06-11 15:37:16,509: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=173
+[2024-06-11 15:37:19,536: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=174
+[2024-06-11 15:37:21,915: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=175
+[2024-06-11 15:37:24,485: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=176
+[2024-06-11 15:37:26,554: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=177
+[2024-06-11 15:37:28,408: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=178
+[2024-06-11 15:37:30,683: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=179
+[2024-06-11 15:37:32,248: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=180
+[2024-06-11 15:37:34,104: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=181
+[2024-06-11 15:37:35,744: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=182
+[2024-06-11 15:37:38,284: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=183
+[2024-06-11 15:37:41,581: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=184
+[2024-06-11 15:37:44,985: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=185
+[2024-06-11 15:37:46,463: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=186
+[2024-06-11 15:37:47,995: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=187
+[2024-06-11 15:37:51,403: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=188
+[2024-06-11 15:37:54,464: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=189
+[2024-06-11 15:37:57,102: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=190
+[2024-06-11 15:37:59,482: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=191
+[2024-06-11 15:38:02,234: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=192
+[2024-06-11 15:38:05,493: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=193
+[2024-06-11 15:38:06,873: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=194
+[2024-06-11 15:38:08,966: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=195
+[2024-06-11 15:38:10,614: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=196
+[2024-06-11 15:38:12,112: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=197
+[2024-06-11 15:38:13,858: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=198
+[2024-06-11 15:38:17,889: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=199
+[2024-06-11 15:38:23,178: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=200
+[2024-06-11 15:38:25,093: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=201
+[2024-06-11 15:38:36,047: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=202
+[2024-06-11 15:38:38,681: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=203
+[2024-06-11 15:38:40,910: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=204
+[2024-06-11 15:38:43,949: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=205
+[2024-06-11 15:38:45,781: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=206
+[2024-06-11 15:38:59,188: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=207
+[2024-06-11 15:39:00,659: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=208
+[2024-06-11 15:39:03,027: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=209
+[2024-06-11 15:39:13,236: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=210
+[2024-06-11 15:39:15,290: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=211
+[2024-06-11 15:39:23,978: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=212
+[2024-06-11 15:39:27,536: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=213
+[2024-06-11 15:39:29,907: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=214
+[2024-06-11 15:39:33,500: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=215
+[2024-06-11 15:39:36,163: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=216
+[2024-06-11 15:39:37,785: WARNING/ForkPoolWorker-4] https://www.hancinema.net/all_korean_dramas.php?p=217
+[2024-06-11 15:39:37,790: WARNING/ForkPoolWorker-4]  Total Links...
+[2024-06-11 15:39:37,790: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:37,790: WARNING/ForkPoolWorker-4] 2593
+[2024-06-11 15:39:37,790: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:37,790: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:37,790: WARNING/ForkPoolWorker-4] korean_drama_One_of_a_Pair.php
+[2024-06-11 15:39:40,186: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:39:40,186: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:40,186: WARNING/ForkPoolWorker-4] One of a Pair
+[2024-06-11 15:39:40,187: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:40,187: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:40,187: WARNING/ForkPoolWorker-4] korean_drama_Sandglass.php
+[2024-06-11 15:39:46,453: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:39:46,454: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:46,454: WARNING/ForkPoolWorker-4] Sandglass
+[2024-06-11 15:39:46,454: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:46,454: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:46,454: WARNING/ForkPoolWorker-4] korean_drama_PaPa.php
+[2024-06-11 15:39:49,461: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:39:49,461: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:49,462: WARNING/ForkPoolWorker-4] PaPa
+[2024-06-11 15:39:49,462: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:49,462: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:49,462: WARNING/ForkPoolWorker-4] korean_drama_First_Love_-_1996.php
+[2024-06-11 15:39:51,485: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:39:51,485: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:51,485: WARNING/ForkPoolWorker-4] First Love - 1996
+[2024-06-11 15:39:51,485: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:51,486: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:51,486: WARNING/ForkPoolWorker-4] korean_drama_Doctor_Brothers.php
+[2024-06-11 15:39:54,054: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:39:54,054: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:54,054: WARNING/ForkPoolWorker-4] Doctor Brothers
+[2024-06-11 15:39:54,055: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:54,055: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:54,055: WARNING/ForkPoolWorker-4] korean_drama_Star_in_my_Heart.php
+[2024-06-11 15:39:56,693: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:39:56,693: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:56,694: WARNING/ForkPoolWorker-4] Star in my Heart
+[2024-06-11 15:39:56,694: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:39:56,694: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:39:56,694: WARNING/ForkPoolWorker-4] korean_drama_Models.php
+[2024-06-11 15:40:04,484: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:04,484: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:04,485: WARNING/ForkPoolWorker-4] Models
+[2024-06-11 15:40:04,485: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:04,485: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:04,485: WARNING/ForkPoolWorker-4] korean_drama_The_Barefooted_Youth.php
+[2024-06-11 15:40:09,123: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:09,127: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:09,128: WARNING/ForkPoolWorker-4] The Barefooted Youth
+[2024-06-11 15:40:09,129: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:09,131: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:09,131: WARNING/ForkPoolWorker-4] korean_drama_Soonpoong_Clinic.php
+[2024-06-11 15:40:15,007: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:15,009: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:15,009: WARNING/ForkPoolWorker-4] Soonpoong Clinic
+[2024-06-11 15:40:15,010: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:15,011: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:15,011: WARNING/ForkPoolWorker-4] korean_drama_Steal_my_Heart.php
+[2024-06-11 15:40:17,130: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:17,131: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:17,132: WARNING/ForkPoolWorker-4] Steal my Heart
+[2024-06-11 15:40:17,133: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:17,133: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:17,134: WARNING/ForkPoolWorker-4] korean_drama_Lie.php
+[2024-06-11 15:40:19,259: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:19,260: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:19,260: WARNING/ForkPoolWorker-4] Lie
+[2024-06-11 15:40:19,261: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:19,261: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:19,261: WARNING/ForkPoolWorker-4] korean_drama_Forever_Yours.php
+[2024-06-11 15:40:20,945: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:20,946: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:20,946: WARNING/ForkPoolWorker-4] Forever Yours
+[2024-06-11 15:40:20,946: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:20,946: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:20,946: WARNING/ForkPoolWorker-4] korean_drama_KAIST.php
+[2024-06-11 15:40:22,635: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:22,635: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:22,635: WARNING/ForkPoolWorker-4] KAIST
+[2024-06-11 15:40:22,636: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:22,636: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:22,636: WARNING/ForkPoolWorker-4] korean_drama_Did_We_Really_Love.php
+[2024-06-11 15:40:25,811: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:25,811: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:25,811: WARNING/ForkPoolWorker-4] Did We Really Love
+[2024-06-11 15:40:25,812: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:25,812: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:25,812: WARNING/ForkPoolWorker-4] korean_drama_Roses_and_Bean_Sprouts.php
+[2024-06-11 15:40:27,787: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:27,788: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:27,788: WARNING/ForkPoolWorker-4] Roses and Bean Sprouts
+[2024-06-11 15:40:27,789: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:27,790: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:27,790: WARNING/ForkPoolWorker-4] korean_drama_Tomato.php
+[2024-06-11 15:40:29,520: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:29,520: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:29,521: WARNING/ForkPoolWorker-4] Tomato
+[2024-06-11 15:40:29,521: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:29,521: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:29,521: WARNING/ForkPoolWorker-4] korean_drama_Happy_Together.php
+[2024-06-11 15:40:34,195: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:34,196: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:34,196: WARNING/ForkPoolWorker-4] Happy Together
+[2024-06-11 15:40:34,197: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:34,197: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:34,197: WARNING/ForkPoolWorker-4] korean_drama_Goodbye_My_Love.php
+[2024-06-11 15:40:36,419: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:36,420: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:36,420: WARNING/ForkPoolWorker-4] Goodbye My Love
+[2024-06-11 15:40:36,421: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:36,422: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:36,422: WARNING/ForkPoolWorker-4] korean_drama_Into_the_Sunlight.php
+[2024-06-11 15:40:41,197: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:41,202: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:41,203: WARNING/ForkPoolWorker-4] Into the Sunlight
+[2024-06-11 15:40:41,204: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:41,205: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:41,206: WARNING/ForkPoolWorker-4] korean_drama_Heo_Jun.php
+[2024-06-11 15:40:42,785: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:42,786: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:42,786: WARNING/ForkPoolWorker-4] Heo Jun
+[2024-06-11 15:40:42,787: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:42,787: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:42,788: WARNING/ForkPoolWorker-4] korean_drama_Truth.php
+[2024-06-11 15:40:49,732: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:49,733: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:49,733: WARNING/ForkPoolWorker-4] Truth
+[2024-06-11 15:40:49,734: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:49,734: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:49,735: WARNING/ForkPoolWorker-4] korean_drama_All_About_Eve.php
+[2024-06-11 15:40:51,320: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:51,321: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:51,322: WARNING/ForkPoolWorker-4] All About Eve
+[2024-06-11 15:40:51,322: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:51,323: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:51,324: WARNING/ForkPoolWorker-4] korean_drama_Mr_p__Duke.php
+[2024-06-11 15:40:53,718: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:53,719: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:53,719: WARNING/ForkPoolWorker-4] Mr. Duke
+[2024-06-11 15:40:53,720: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:53,720: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:53,720: WARNING/ForkPoolWorker-4] korean_drama_Swat_Police.php
+[2024-06-11 15:40:56,336: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:56,337: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:56,337: WARNING/ForkPoolWorker-4] Swat Police
+[2024-06-11 15:40:56,337: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:56,338: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:56,338: WARNING/ForkPoolWorker-4] korean_drama_Autumn_in_my_Heart.php
+[2024-06-11 15:40:59,924: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:40:59,925: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:59,926: WARNING/ForkPoolWorker-4] Autumn in my Heart
+[2024-06-11 15:40:59,926: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:40:59,926: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:40:59,926: WARNING/ForkPoolWorker-4] korean_drama_Secret.php
+[2024-06-11 15:41:02,123: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:02,123: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:02,124: WARNING/ForkPoolWorker-4] Secret
+[2024-06-11 15:41:02,124: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:02,124: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:02,124: WARNING/ForkPoolWorker-4] korean_drama_Mothers_and_Sisters.php
+[2024-06-11 15:41:03,544: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:03,545: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:03,545: WARNING/ForkPoolWorker-4] Mothers and Sisters
+[2024-06-11 15:41:03,546: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:03,547: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:03,547: WARNING/ForkPoolWorker-4] korean_drama_A_Delicious_Proposal.php
+[2024-06-11 15:41:05,170: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:05,171: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:05,172: WARNING/ForkPoolWorker-4] A Delicious Proposal
+[2024-06-11 15:41:05,172: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:05,173: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:05,173: WARNING/ForkPoolWorker-4] korean_drama_Beautiful_Days.php
+[2024-06-11 15:41:07,983: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:07,984: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:07,984: WARNING/ForkPoolWorker-4] Beautiful Days
+[2024-06-11 15:41:07,985: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:07,985: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:07,985: WARNING/ForkPoolWorker-4] korean_drama_Hotelier.php
+[2024-06-11 15:41:09,699: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:09,700: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:09,701: WARNING/ForkPoolWorker-4] Hotelier
+[2024-06-11 15:41:09,702: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:09,703: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:09,703: WARNING/ForkPoolWorker-4] korean_drama_Law_Firm.php
+[2024-06-11 15:41:11,650: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:11,650: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:11,651: WARNING/ForkPoolWorker-4] Law Firm
+[2024-06-11 15:41:11,651: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:11,652: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:11,653: WARNING/ForkPoolWorker-4] korean_drama_Four_Sisters.php
+[2024-06-11 15:41:14,210: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:14,212: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:14,217: WARNING/ForkPoolWorker-4] Four Sisters
+[2024-06-11 15:41:14,220: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:14,222: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:14,223: WARNING/ForkPoolWorker-4] korean_drama_Guardian_Angel.php
+[2024-06-11 15:41:17,330: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:17,331: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:17,331: WARNING/ForkPoolWorker-4] Guardian Angel
+[2024-06-11 15:41:17,331: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:17,331: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:17,332: WARNING/ForkPoolWorker-4] korean_drama_Sangdo.php
+[2024-06-11 15:41:19,503: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:19,504: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:19,504: WARNING/ForkPoolWorker-4] Sangdo
+[2024-06-11 15:41:19,505: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:19,505: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:19,506: WARNING/ForkPoolWorker-4] korean_drama_Piano.php
+[2024-06-11 15:41:21,908: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:21,909: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:21,909: WARNING/ForkPoolWorker-4] Piano
+[2024-06-11 15:41:21,910: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:21,911: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:21,911: WARNING/ForkPoolWorker-4] korean_drama_Out_of_Justice.php
+[2024-06-11 15:41:29,039: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:29,040: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:29,040: WARNING/ForkPoolWorker-4] Out of Justice
+[2024-06-11 15:41:29,041: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:29,041: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:29,042: WARNING/ForkPoolWorker-4] korean_drama_Winter_Sonata.php
+[2024-06-11 15:41:31,849: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:31,849: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:31,849: WARNING/ForkPoolWorker-4] Winter Sonata
+[2024-06-11 15:41:31,849: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:31,850: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:31,850: WARNING/ForkPoolWorker-4] korean_drama_Dating_Now.php
+[2024-06-11 15:41:34,487: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:34,488: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:34,488: WARNING/ForkPoolWorker-4] Dating Now
+[2024-06-11 15:41:34,489: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:34,490: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:34,491: WARNING/ForkPoolWorker-4] korean_drama_Glass_Slipper.php
+[2024-06-11 15:41:39,811: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:39,811: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:39,812: WARNING/ForkPoolWorker-4] Glass Slipper
+[2024-06-11 15:41:39,812: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:39,812: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:39,813: WARNING/ForkPoolWorker-4] korean_drama_The_Successful_Story_Of_A_Bright_Girl.php
+[2024-06-11 15:41:50,667: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:50,668: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:50,668: WARNING/ForkPoolWorker-4] The Successful Story Of A Bright Girl
+[2024-06-11 15:41:50,669: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:50,669: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:50,670: WARNING/ForkPoolWorker-4] korean_drama_Since_We_Met.php
+[2024-06-11 15:41:52,818: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:52,818: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:52,819: WARNING/ForkPoolWorker-4] Since We Met
+[2024-06-11 15:41:52,819: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:52,819: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:52,820: WARNING/ForkPoolWorker-4] korean_drama_Romance.php
+[2024-06-11 15:41:54,399: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:54,399: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:54,400: WARNING/ForkPoolWorker-4] Romance
+[2024-06-11 15:41:54,400: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:54,400: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:54,400: WARNING/ForkPoolWorker-4] korean_drama_Miss_Mermaid.php
+[2024-06-11 15:41:57,514: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:57,515: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:57,515: WARNING/ForkPoolWorker-4] Miss Mermaid
+[2024-06-11 15:41:57,515: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:57,516: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:57,516: WARNING/ForkPoolWorker-4] korean_drama_To_Be_With_You.php
+[2024-06-11 15:41:59,725: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:41:59,726: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:59,727: WARNING/ForkPoolWorker-4] To Be With You
+[2024-06-11 15:41:59,727: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:41:59,728: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:41:59,728: WARNING/ForkPoolWorker-4] korean_drama_The_Age_of_Innocence.php
+[2024-06-11 15:42:01,205: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:01,206: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:01,206: WARNING/ForkPoolWorker-4] The Age of Innocence
+[2024-06-11 15:42:01,206: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:01,207: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:01,208: WARNING/ForkPoolWorker-4] korean_drama_Ruler_of_Your_Own_World.php
+[2024-06-11 15:42:03,095: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:03,096: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:03,097: WARNING/ForkPoolWorker-4] Ruler of Your Own World
+[2024-06-11 15:42:03,098: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:03,098: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:03,099: WARNING/ForkPoolWorker-4] korean_drama_Loving_You.php
+[2024-06-11 15:42:05,123: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:05,124: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:05,125: WARNING/ForkPoolWorker-4] Loving You
+[2024-06-11 15:42:05,125: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:05,125: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:05,125: WARNING/ForkPoolWorker-4] korean_drama_My_Love_Patzzi.php
+[2024-06-11 15:42:12,898: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:12,899: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:12,900: WARNING/ForkPoolWorker-4] My Love Patzzi
+[2024-06-11 15:42:12,900: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:12,900: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:12,901: WARNING/ForkPoolWorker-4] korean_drama_Solitude.php
+[2024-06-11 15:42:15,500: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:15,501: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:15,502: WARNING/ForkPoolWorker-4] Solitude
+[2024-06-11 15:42:15,502: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:15,502: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:15,503: WARNING/ForkPoolWorker-4] korean_drama_Shoot_for_the_Stars.php
+[2024-06-11 15:42:18,367: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:18,368: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:18,368: WARNING/ForkPoolWorker-4] Shoot for the Stars
+[2024-06-11 15:42:18,368: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:18,368: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:18,369: WARNING/ForkPoolWorker-4] korean_drama_Into_the_Sun.php
+[2024-06-11 15:42:20,593: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:20,594: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:20,594: WARNING/ForkPoolWorker-4] Into the Sun
+[2024-06-11 15:42:20,594: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:20,594: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:20,594: WARNING/ForkPoolWorker-4] korean_drama_All_In.php
+[2024-06-11 15:42:22,975: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:22,975: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:22,976: WARNING/ForkPoolWorker-4] All In
+[2024-06-11 15:42:22,976: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:22,976: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:22,976: WARNING/ForkPoolWorker-4] korean_drama_Love_Letter.php
+[2024-06-11 15:42:25,797: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:25,799: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:25,803: WARNING/ForkPoolWorker-4] Love Letter
+[2024-06-11 15:42:25,804: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:25,804: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:25,805: WARNING/ForkPoolWorker-4] korean_drama_The_Funny_Wild_Girl.php
+[2024-06-11 15:42:28,391: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:28,391: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:28,391: WARNING/ForkPoolWorker-4] The Funny Wild Girl
+[2024-06-11 15:42:28,391: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:28,392: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:28,392: WARNING/ForkPoolWorker-4] korean_drama_Love_of_Thousands_Years.php
+[2024-06-11 15:42:31,835: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:31,838: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:31,838: WARNING/ForkPoolWorker-4] Love of Thousands Years
+[2024-06-11 15:42:31,839: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:31,839: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:31,839: WARNING/ForkPoolWorker-4] korean_drama_Screen.php
+[2024-06-11 15:42:38,537: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:42:38,538: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:38,538: WARNING/ForkPoolWorker-4] korean_drama_Screen.php
+[2024-06-11 15:42:38,540: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:38,540: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:38,540: WARNING/ForkPoolWorker-4] korean_drama_Cat_on_the_Roof.php
+[2024-06-11 15:42:43,221: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:43,232: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:43,232: WARNING/ForkPoolWorker-4] Cat on the Roof
+[2024-06-11 15:42:43,232: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:43,232: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:43,233: WARNING/ForkPoolWorker-4] korean_drama_Bodyguard.php
+[2024-06-11 15:42:45,063: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:45,064: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:45,064: WARNING/ForkPoolWorker-4] Bodyguard
+[2024-06-11 15:42:45,064: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:45,065: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:45,066: WARNING/ForkPoolWorker-4] korean_drama_Something_About_1_pc_.php
+[2024-06-11 15:42:47,856: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:47,862: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:47,863: WARNING/ForkPoolWorker-4] Something About 1%
+[2024-06-11 15:42:47,863: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:47,863: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:47,864: WARNING/ForkPoolWorker-4] korean_drama_Summer_Scent.php
+[2024-06-11 15:42:50,076: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:50,076: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:50,077: WARNING/ForkPoolWorker-4] Summer Scent
+[2024-06-11 15:42:50,077: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:50,077: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:50,077: WARNING/ForkPoolWorker-4] korean_drama_The_Woman_Living_Across_the_Street.php
+[2024-06-11 15:42:52,162: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:42:52,162: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:52,163: WARNING/ForkPoolWorker-4] The Woman Living Across the Street
+[2024-06-11 15:42:52,164: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:42:52,164: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:42:52,165: WARNING/ForkPoolWorker-4] korean_drama_Damo.php
+[2024-06-11 15:43:08,023: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:08,024: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:08,024: WARNING/ForkPoolWorker-4] Damo
+[2024-06-11 15:43:08,024: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:08,025: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:08,025: WARNING/ForkPoolWorker-4] korean_drama_My_Fair_Lady_-_2003.php
+[2024-06-11 15:43:11,481: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:11,482: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:11,482: WARNING/ForkPoolWorker-4] My Fair Lady - 2003
+[2024-06-11 15:43:11,483: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:11,484: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:11,484: WARNING/ForkPoolWorker-4] korean_drama_Dae_Jang_Geum.php
+[2024-06-11 15:43:15,782: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:15,782: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:15,783: WARNING/ForkPoolWorker-4] Dae Jang Geum
+[2024-06-11 15:43:15,783: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:15,783: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:15,784: WARNING/ForkPoolWorker-4] korean_drama_Sang_Doo_e__Let__s_go_to_school.php
+[2024-06-11 15:43:18,177: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:18,178: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:18,178: WARNING/ForkPoolWorker-4] Sang Doo! Let's go to school
+[2024-06-11 15:43:18,178: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:18,178: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:18,179: WARNING/ForkPoolWorker-4] korean_drama_Sharp_1.php
+[2024-06-11 15:43:20,169: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:20,169: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:20,169: WARNING/ForkPoolWorker-4] Sharp 1
+[2024-06-11 15:43:20,170: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:20,170: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:20,170: WARNING/ForkPoolWorker-4] korean_drama_Stairway_to_Heaven.php
+[2024-06-11 15:43:24,542: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:24,543: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:24,543: WARNING/ForkPoolWorker-4] Stairway to Heaven
+[2024-06-11 15:43:24,544: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:24,545: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:24,545: WARNING/ForkPoolWorker-4] korean_drama_Match_Made_in_Heaven.php
+[2024-06-11 15:43:26,098: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:43:26,099: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:26,100: WARNING/ForkPoolWorker-4] Match Made in Heaven
+[2024-06-11 15:43:26,100: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:43:26,101: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:43:26,101: WARNING/ForkPoolWorker-4] korean_drama_More_Beautiful_Than_a_Flower.php
+[2024-06-11 15:43:42,586: ERROR/ForkPoolWorker-4] Task get_all_kdrama_once[47bfece5-e84d-4b02-936c-ab53e18cf64b] raised unexpected: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.8/http/client.py", line 1348, in getresponse
+    response.begin()
+  File "/usr/lib/python3.8/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.8/http/client.py", line 285, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.8/http/client.py", line 1348, in getresponse
+    response.begin()
+  File "/usr/lib/python3.8/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.8/http/client.py", line 285, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/tasks.py", line 67, in get_all_kdrama
+    get_single_drama_info(base_url,single_drama)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/cron_functions.py", line 138, in get_single_drama_info
+    r = session.get(base_url+'/'+single_drama_link)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2024-06-11 15:47:20,928: INFO/MainProcess] Task get_new_kdrama_everyday[c9f75754-27a1-4c69-9f55-9f64b5bb5d44] received
+[2024-06-11 15:47:22,308: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php
+[2024-06-11 15:47:23,700: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=2
+[2024-06-11 15:47:26,669: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=3
+[2024-06-11 15:47:31,248: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=4
+[2024-06-11 15:47:35,221: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=5
+[2024-06-11 15:47:36,700: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=6
+[2024-06-11 15:47:43,032: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=7
+[2024-06-11 15:47:49,339: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=8
+[2024-06-11 15:47:53,401: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=9
+[2024-06-11 15:47:55,301: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=10
+[2024-06-11 15:47:57,417: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=11
+[2024-06-11 15:47:59,762: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=12
+[2024-06-11 15:48:05,825: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=13
+[2024-06-11 15:48:07,259: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=14
+[2024-06-11 15:48:08,615: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=15
+[2024-06-11 15:48:12,264: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=16
+[2024-06-11 15:48:15,305: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=17
+[2024-06-11 15:48:17,950: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=18
+[2024-06-11 15:48:19,650: WARNING/ForkPoolWorker-4] https://www.hancinema.net/upcoming-korean-dramas.php?p=19
+[2024-06-11 15:48:19,651: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:48:19,651: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:48:19,651: WARNING/ForkPoolWorker-4] korean_drama_My_Sweet_Mobster.php
+[2024-06-11 15:48:35,154: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:48:35,154: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:48:35,155: WARNING/ForkPoolWorker-4] korean_drama_My_Sweet_Mobster.php
+[2024-06-11 15:48:35,155: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:48:35,155: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:48:35,155: WARNING/ForkPoolWorker-4] korean_drama_Miss_Night_and_Day.php
+[2024-06-11 15:48:53,925: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:48:53,926: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:48:53,926: WARNING/ForkPoolWorker-4] korean_drama_Miss_Night_and_Day.php
+[2024-06-11 15:48:53,926: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:48:53,926: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:48:53,926: WARNING/ForkPoolWorker-4] korean_drama_Scandal_-_2024.php
+[2024-06-11 15:49:04,463: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:49:04,463: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:04,463: WARNING/ForkPoolWorker-4] korean_drama_Scandal_-_2024.php
+[2024-06-11 15:49:04,463: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:49:04,463: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:04,463: WARNING/ForkPoolWorker-4] korean_drama_Scandal_-_2024.php
+[2024-06-11 15:49:06,675: WARNING/ForkPoolWorker-4] Drama already exist
+[2024-06-11 15:49:06,675: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:06,675: WARNING/ForkPoolWorker-4] Scandal - 2024
+[2024-06-11 15:49:06,676: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:49:06,676: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:06,676: WARNING/ForkPoolWorker-4] korean_drama_The_Whirlwind.php
+[2024-06-11 15:49:18,774: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:49:18,774: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:18,774: WARNING/ForkPoolWorker-4] korean_drama_The_Whirlwind.php
+[2024-06-11 15:49:18,774: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:49:18,775: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:18,775: WARNING/ForkPoolWorker-4] korean_drama_Red_Swan.php
+[2024-06-11 15:49:23,293: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:49:23,294: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:23,294: WARNING/ForkPoolWorker-4] korean_drama_Red_Swan.php
+[2024-06-11 15:49:23,294: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:49:23,294: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:23,294: WARNING/ForkPoolWorker-4] korean_drama_The_Pork_Cutlets.php
+[2024-06-11 15:49:41,393: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:49:41,394: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:41,394: WARNING/ForkPoolWorker-4] korean_drama_The_Pork_Cutlets.php
+[2024-06-11 15:49:41,394: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:49:41,394: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:41,394: WARNING/ForkPoolWorker-4] korean_drama_The_Auditors.php
+[2024-06-11 15:49:53,319: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:49:53,319: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:53,320: WARNING/ForkPoolWorker-4] korean_drama_The_Auditors.php
+[2024-06-11 15:49:53,320: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:49:53,320: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:49:53,320: WARNING/ForkPoolWorker-4] korean_drama_Good_Partner.php
+[2024-06-11 15:50:10,215: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:50:10,215: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:10,215: WARNING/ForkPoolWorker-4] korean_drama_Good_Partner.php
+[2024-06-11 15:50:10,215: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:50:10,215: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:10,216: WARNING/ForkPoolWorker-4] korean_drama_Our_Shining_Star.php
+[2024-06-11 15:50:22,533: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:50:22,534: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:22,534: WARNING/ForkPoolWorker-4] korean_drama_Our_Shining_Star.php
+[2024-06-11 15:50:22,534: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:50:22,534: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:22,534: WARNING/ForkPoolWorker-4] korean_drama_No_Way_Out_2p__The_Roulette.php
+[2024-06-11 15:50:38,787: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:50:38,787: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:38,787: WARNING/ForkPoolWorker-4] korean_drama_No_Way_Out_2p__The_Roulette.php
+[2024-06-11 15:50:38,788: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:50:38,788: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:38,788: WARNING/ForkPoolWorker-4] korean_drama_Your_Honor_-_2024.php
+[2024-06-11 15:50:50,952: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:50:50,952: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:50,952: WARNING/ForkPoolWorker-4] korean_drama_Your_Honor_-_2024.php
+[2024-06-11 15:50:50,952: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:50:50,952: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:50:50,953: WARNING/ForkPoolWorker-4] korean_drama_The_Story_of_Lady_Ok.php
+[2024-06-11 15:51:00,579: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:51:00,580: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:00,580: WARNING/ForkPoolWorker-4] korean_drama_The_Story_of_Lady_Ok.php
+[2024-06-11 15:51:00,580: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:51:00,581: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:00,581: WARNING/ForkPoolWorker-4] korean_drama_The_Judge_from_Hell.php
+[2024-06-11 15:51:12,422: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:51:12,422: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:12,422: WARNING/ForkPoolWorker-4] korean_drama_The_Judge_from_Hell.php
+[2024-06-11 15:51:12,423: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:51:12,423: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:12,423: WARNING/ForkPoolWorker-4] korean_drama_Black_Out.php
+[2024-06-11 15:51:27,597: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:51:27,597: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:27,598: WARNING/ForkPoolWorker-4] korean_drama_Black_Out.php
+[2024-06-11 15:51:27,598: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:51:27,598: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:27,598: WARNING/ForkPoolWorker-4] korean_drama_DNA_Lover.php
+[2024-06-11 15:51:53,414: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:51:53,420: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:53,420: WARNING/ForkPoolWorker-4] korean_drama_DNA_Lover.php
+[2024-06-11 15:51:53,420: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:51:53,421: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:51:53,421: WARNING/ForkPoolWorker-4] korean_drama_Pachinko_-_Season_2.php
+[2024-06-11 15:52:11,457: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:52:11,457: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:11,458: WARNING/ForkPoolWorker-4] korean_drama_Pachinko_-_Season_2.php
+[2024-06-11 15:52:11,458: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:52:11,459: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:11,459: WARNING/ForkPoolWorker-4] korean_drama_Jeong_Nyeon.php
+[2024-06-11 15:52:20,126: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:52:20,127: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:20,127: WARNING/ForkPoolWorker-4] korean_drama_Jeong_Nyeon.php
+[2024-06-11 15:52:20,127: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:52:20,127: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:20,127: WARNING/ForkPoolWorker-4] korean_drama_Queen_Woo.php
+[2024-06-11 15:52:33,242: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:52:33,242: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:33,242: WARNING/ForkPoolWorker-4] korean_drama_Queen_Woo.php
+[2024-06-11 15:52:33,243: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:52:33,243: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:33,243: WARNING/ForkPoolWorker-4] korean_drama_Because_I_Want_No_Loss.php
+[2024-06-11 15:52:40,880: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:52:40,880: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:40,881: WARNING/ForkPoolWorker-4] korean_drama_Because_I_Want_No_Loss.php
+[2024-06-11 15:52:40,881: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:52:40,881: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:40,881: WARNING/ForkPoolWorker-4] korean_drama_Golden_Boy.php
+[2024-06-11 15:52:53,248: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:52:53,248: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:53,249: WARNING/ForkPoolWorker-4] korean_drama_Golden_Boy.php
+[2024-06-11 15:52:53,249: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:52:53,249: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:52:53,249: WARNING/ForkPoolWorker-4] korean_drama_Seoul_Busters.php
+[2024-06-11 15:53:15,149: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:53:15,150: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:53:15,150: WARNING/ForkPoolWorker-4] korean_drama_Seoul_Busters.php
+[2024-06-11 15:53:15,150: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:53:15,150: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:53:15,150: WARNING/ForkPoolWorker-4] korean_drama_Parole_Examiner_Lee_Han-shin.php
+[2024-06-11 15:53:48,912: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:53:48,912: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:53:48,912: WARNING/ForkPoolWorker-4] korean_drama_Parole_Examiner_Lee_Han-shin.php
+[2024-06-11 15:53:48,913: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:53:48,913: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:53:48,913: WARNING/ForkPoolWorker-4] korean_drama_The_Number_You_Have_Dialed.php
+[2024-06-11 15:53:55,281: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:53:55,282: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:53:55,282: WARNING/ForkPoolWorker-4] korean_drama_The_Number_You_Have_Dialed.php
+[2024-06-11 15:53:55,314: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:53:55,314: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:53:55,315: WARNING/ForkPoolWorker-4] korean_drama_The_Fiery_Priest_-_Season_2.php
+[2024-06-11 15:54:00,887: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:54:00,891: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:54:00,893: WARNING/ForkPoolWorker-4] korean_drama_The_Fiery_Priest_-_Season_2.php
+[2024-06-11 15:54:00,894: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:54:00,894: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:54:00,894: WARNING/ForkPoolWorker-4] korean_drama_Between_Greetings.php
+[2024-06-11 15:54:09,992: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:54:09,992: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:54:09,992: WARNING/ForkPoolWorker-4] korean_drama_Between_Greetings.php
+[2024-06-11 15:54:09,992: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:54:09,992: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:54:09,993: WARNING/ForkPoolWorker-4] korean_drama_Wongyeong.php
+[2024-06-11 15:54:22,292: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:54:22,292: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:54:22,292: WARNING/ForkPoolWorker-4] korean_drama_Wongyeong.php
+[2024-06-11 15:54:22,292: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:54:22,292: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:54:22,292: WARNING/ForkPoolWorker-4] korean_drama_Guardians.php
+[2024-06-11 15:55:03,589: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:55:03,589: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:03,589: WARNING/ForkPoolWorker-4] korean_drama_Guardians.php
+[2024-06-11 15:55:03,590: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:55:03,590: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:03,590: WARNING/ForkPoolWorker-4] korean_drama_S_Line.php
+[2024-06-11 15:55:09,863: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:55:09,863: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:09,863: WARNING/ForkPoolWorker-4] korean_drama_S_Line.php
+[2024-06-11 15:55:09,864: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:55:09,864: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:09,864: WARNING/ForkPoolWorker-4] korean_drama_Level_9_Chairman.php
+[2024-06-11 15:55:17,807: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:55:17,807: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:17,807: WARNING/ForkPoolWorker-4] korean_drama_Level_9_Chairman.php
+[2024-06-11 15:55:17,808: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:55:17,808: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:17,808: WARNING/ForkPoolWorker-4] korean_drama_Hellbound_-_Season_2.php
+[2024-06-11 15:55:29,045: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:55:29,046: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:29,046: WARNING/ForkPoolWorker-4] korean_drama_Hellbound_-_Season_2.php
+[2024-06-11 15:55:29,047: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:55:29,047: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:29,048: WARNING/ForkPoolWorker-4] korean_drama_The_Trunk.php
+[2024-06-11 15:55:47,406: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:55:47,406: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:47,406: WARNING/ForkPoolWorker-4] korean_drama_The_Trunk.php
+[2024-06-11 15:55:47,406: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:55:47,406: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:47,406: WARNING/ForkPoolWorker-4] korean_drama_Mr_p__Plankton.php
+[2024-06-11 15:55:58,590: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:55:58,590: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:58,590: WARNING/ForkPoolWorker-4] korean_drama_Mr_p__Plankton.php
+[2024-06-11 15:55:58,590: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:55:58,590: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:55:58,591: WARNING/ForkPoolWorker-4] korean_drama_The_Mentalist.php
+[2024-06-11 15:56:08,265: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:56:08,265: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:08,266: WARNING/ForkPoolWorker-4] korean_drama_The_Mentalist.php
+[2024-06-11 15:56:08,266: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:56:08,266: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:08,266: WARNING/ForkPoolWorker-4] korean_drama_The_Tyrant.php
+[2024-06-11 15:56:15,772: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:56:15,773: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:15,773: WARNING/ForkPoolWorker-4] korean_drama_The_Tyrant.php
+[2024-06-11 15:56:15,773: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:56:15,773: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:15,773: WARNING/ForkPoolWorker-4] korean_drama_Study_Group.php
+[2024-06-11 15:56:30,335: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:56:30,335: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:30,335: WARNING/ForkPoolWorker-4] korean_drama_Study_Group.php
+[2024-06-11 15:56:30,336: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:56:30,336: WARNING/ForkPoolWorker-4The Modern React 18 Bootcamp - A Complete Developer Guide
+]
+[2024-06-11 15:56:30,336: WARNING/ForkPoolWorker-4] korean_drama_Such_a_Close_Traitor.php
+[2024-06-11 15:56:44,359: WARNING/ForkPoolWorker-4]  Finished to get Drama ..
+[2024-06-11 15:56:44,360: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:44,360: WARNING/ForkPoolWorker-4] korean_drama_Such_a_Close_Traitor.php
+[2024-06-11 15:56:44,360: WARNING/ForkPoolWorker-4]  started to get Drama ..
+[2024-06-11 15:56:44,360: WARNING/ForkPoolWorker-4]  
+[2024-06-11 15:56:44,360: WARNING/ForkPoolWorker-4] korean_drama_Resident_Playbook.php
+[2024-06-11 16:11:32,976: INFO/MainProcess] Task get_new_kdrama_everyday[6168acaa-0a4d-40e7-8527-d1b77fafa18c] received
+[2024-06-11 16:11:41,069: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php
+[2024-06-11 16:11:43,036: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=2
+[2024-06-11 16:11:46,088: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=3
+[2024-06-11 16:11:48,731: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=4
+[2024-06-11 16:11:50,519: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=5
+[2024-06-11 16:11:52,716: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=6
+[2024-06-11 16:11:54,335: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=7
+[2024-06-11 16:11:57,142: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=8
+[2024-06-11 16:11:59,726: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=9
+[2024-06-11 16:12:02,604: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=10
+[2024-06-11 16:12:04,126: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=11
+[2024-06-11 16:12:05,459: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=12
+[2024-06-11 16:12:07,462: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=13
+[2024-06-11 16:12:10,860: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=14
+[2024-06-11 16:12:13,684: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=15
+[2024-06-11 16:12:20,762: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=16
+[2024-06-11 16:12:22,255: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=17
+[2024-06-11 16:12:25,191: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=18
+[2024-06-11 16:12:26,720: WARNING/ForkPoolWorker-2] https://www.hancinema.net/upcoming-korean-dramas.php?p=19
+[2024-06-11 16:12:26,722: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:26,722: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:26,722: WARNING/ForkPoolWorker-2] korean_drama_My_Sweet_Mobster.php
+[2024-06-11 16:12:31,461: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:31,461: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:31,461: WARNING/ForkPoolWorker-2] My Sweet Mobster
+[2024-06-11 16:12:31,461: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:31,461: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:31,461: WARNING/ForkPoolWorker-2] korean_drama_Miss_Night_and_Day.php
+[2024-06-11 16:12:33,072: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:33,072: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:33,073: WARNING/ForkPoolWorker-2] Miss Night and Day
+[2024-06-11 16:12:33,073: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:33,073: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:33,074: WARNING/ForkPoolWorker-2] korean_drama_Scandal_-_2024.php
+[2024-06-11 16:12:36,272: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:36,273: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:36,273: WARNING/ForkPoolWorker-2] Scandal - 2024
+[2024-06-11 16:12:36,273: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:36,274: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:36,274: WARNING/ForkPoolWorker-2] korean_drama_Scandal_-_2024.php
+[2024-06-11 16:12:38,661: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:38,661: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:38,661: WARNING/ForkPoolWorker-2] Scandal - 2024
+[2024-06-11 16:12:38,662: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:38,662: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:38,662: WARNING/ForkPoolWorker-2] korean_drama_The_Whirlwind.php
+[2024-06-11 16:12:43,075: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:43,076: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:43,076: WARNING/ForkPoolWorker-2] The Whirlwind
+[2024-06-11 16:12:43,076: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:43,076: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:43,076: WARNING/ForkPoolWorker-2] korean_drama_Red_Swan.php
+[2024-06-11 16:12:47,342: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:47,342: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:47,343: WARNING/ForkPoolWorker-2] Red Swan
+[2024-06-11 16:12:47,343: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:47,343: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:47,343: WARNING/ForkPoolWorker-2] korean_drama_The_Pork_Cutlets.php
+[2024-06-11 16:12:54,261: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:54,262: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:54,262: WARNING/ForkPoolWorker-2] The Pork Cutlets
+[2024-06-11 16:12:54,262: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:54,262: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:54,263: WARNING/ForkPoolWorker-2] korean_drama_The_Auditors.php
+[2024-06-11 16:12:56,425: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:56,425: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:56,425: WARNING/ForkPoolWorker-2] The Auditors
+[2024-06-11 16:12:56,425: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:56,426: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:56,426: WARNING/ForkPoolWorker-2] korean_drama_Good_Partner.php
+[2024-06-11 16:12:58,138: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:12:58,138: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:58,139: WARNING/ForkPoolWorker-2] Good Partner
+[2024-06-11 16:12:58,139: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:12:58,139: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:12:58,139: WARNING/ForkPoolWorker-2] korean_drama_Our_Shining_Star.php
+[2024-06-11 16:13:00,447: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:00,447: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:00,447: WARNING/ForkPoolWorker-2] Our Shining Star
+[2024-06-11 16:13:00,447: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:00,448: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:00,448: WARNING/ForkPoolWorker-2] korean_drama_No_Way_Out_2p__The_Roulette.php
+[2024-06-11 16:13:03,047: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:03,048: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:03,048: WARNING/ForkPoolWorker-2] No Way Out: The Roulette
+[2024-06-11 16:13:03,048: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:03,048: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:03,048: WARNING/ForkPoolWorker-2] korean_drama_Your_Honor_-_2024.php
+[2024-06-11 16:13:04,731: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:04,731: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:04,731: WARNING/ForkPoolWorker-2] Your Honor - 2024
+[2024-06-11 16:13:04,732: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:04,732: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:04,732: WARNING/ForkPoolWorker-2] korean_drama_The_Story_of_Lady_Ok.php
+[2024-06-11 16:13:07,056: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:07,057: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:07,057: WARNING/ForkPoolWorker-2] The Story of Lady Ok
+[2024-06-11 16:13:07,057: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:07,057: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:07,057: WARNING/ForkPoolWorker-2] korean_drama_The_Judge_from_Hell.php
+[2024-06-11 16:13:17,190: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:17,190: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:17,190: WARNING/ForkPoolWorker-2] The Judge from Hell
+[2024-06-11 16:13:17,190: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:17,190: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:17,191: WARNING/ForkPoolWorker-2] korean_drama_Black_Out.php
+[2024-06-11 16:13:18,723: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:18,723: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:18,724: WARNING/ForkPoolWorker-2] Black Out
+[2024-06-11 16:13:18,724: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:18,724: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:18,724: WARNING/ForkPoolWorker-2] korean_drama_DNA_Lover.php
+[2024-06-11 16:13:21,099: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:21,099: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:21,100: WARNING/ForkPoolWorker-2] DNA Lover
+[2024-06-11 16:13:21,100: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:21,100: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:21,100: WARNING/ForkPoolWorker-2] korean_drama_Pachinko_-_Season_2.php
+[2024-06-11 16:13:22,655: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:22,656: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:22,656: WARNING/ForkPoolWorker-2] Pachinko - Season 2
+[2024-06-11 16:13:22,656: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:22,656: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:22,656: WARNING/ForkPoolWorker-2] korean_drama_Jeong_Nyeon.php
+[2024-06-11 16:13:26,486: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:26,487: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:26,487: WARNING/ForkPoolWorker-2] Jeong Nyeon
+[2024-06-11 16:13:26,488: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:26,491: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:26,491: WARNING/ForkPoolWorker-2] korean_drama_Queen_Woo.php
+[2024-06-11 16:13:28,041: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:28,041: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:28,041: WARNING/ForkPoolWorker-2] Queen Woo
+[2024-06-11 16:13:28,041: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:28,042: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:28,042: WARNING/ForkPoolWorker-2] korean_drama_Because_I_Want_No_Loss.php
+[2024-06-11 16:13:30,453: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:30,453: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:30,454: WARNING/ForkPoolWorker-2] Because I Want No Loss
+[2024-06-11 16:13:30,454: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:30,454: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:30,454: WARNING/ForkPoolWorker-2] korean_drama_Golden_Boy.php
+[2024-06-11 16:13:32,668: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:32,668: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:32,668: WARNING/ForkPoolWorker-2] Golden Boy
+[2024-06-11 16:13:32,668: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:32,669: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:32,669: WARNING/ForkPoolWorker-2] korean_drama_Seoul_Busters.php
+[2024-06-11 16:13:37,906: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:37,906: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:37,906: WARNING/ForkPoolWorker-2] Seoul Busters
+[2024-06-11 16:13:37,906: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:37,907: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:37,907: WARNING/ForkPoolWorker-2] korean_drama_Parole_Examiner_Lee_Han-shin.php
+[2024-06-11 16:13:39,585: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:39,585: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:39,585: WARNING/ForkPoolWorker-2] Parole Examiner Lee Han-shin
+[2024-06-11 16:13:39,585: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:39,585: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:39,586: WARNING/ForkPoolWorker-2] korean_drama_The_Number_You_Have_Dialed.php
+[2024-06-11 16:13:41,621: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:41,621: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:41,621: WARNING/ForkPoolWorker-2] The Number You Have Dialed
+[2024-06-11 16:13:41,621: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:41,622: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:41,622: WARNING/ForkPoolWorker-2] korean_drama_The_Fiery_Priest_-_Season_2.php
+[2024-06-11 16:13:46,023: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:46,023: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:46,024: WARNING/ForkPoolWorker-2] The Fiery Priest - Season 2
+[2024-06-11 16:13:46,024: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:46,024: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:46,024: WARNING/ForkPoolWorker-2] korean_drama_Between_Greetings.php
+[2024-06-11 16:13:51,809: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:51,810: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:51,810: WARNING/ForkPoolWorker-2] Between Greetings
+[2024-06-11 16:13:51,810: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:51,810: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:51,810: WARNING/ForkPoolWorker-2] korean_drama_Wongyeong.php
+[2024-06-11 16:13:53,173: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:53,173: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:53,173: WARNING/ForkPoolWorker-2] Wongyeong
+[2024-06-11 16:13:53,174: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:53,174: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:53,174: WARNING/ForkPoolWorker-2] korean_drama_Guardians.php
+[2024-06-11 16:13:56,270: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:13:56,272: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:56,273: WARNING/ForkPoolWorker-2] Guardians
+[2024-06-11 16:13:56,274: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:13:56,275: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:13:56,275: WARNING/ForkPoolWorker-2] korean_drama_S_Line.php
+[2024-06-11 16:14:00,570: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:00,570: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:00,570: WARNING/ForkPoolWorker-2] S Line
+[2024-06-11 16:14:00,570: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:00,571: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:00,571: WARNING/ForkPoolWorker-2] korean_drama_Level_9_Chairman.php
+[2024-06-11 16:14:04,281: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:04,282: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:04,282: WARNING/ForkPoolWorker-2] Level 9 Chairman
+[2024-06-11 16:14:04,282: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:04,282: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:04,282: WARNING/ForkPoolWorker-2] korean_drama_Hellbound_-_Season_2.php
+[2024-06-11 16:14:08,150: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:08,150: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:08,151: WARNING/ForkPoolWorker-2] Hellbound - Season 2
+[2024-06-11 16:14:08,151: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:08,151: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:08,151: WARNING/ForkPoolWorker-2] korean_drama_The_Trunk.php
+[2024-06-11 16:14:10,832: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:10,832: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:10,832: WARNING/ForkPoolWorker-2] The Trunk
+[2024-06-11 16:14:10,832: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:10,832: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:10,833: WARNING/ForkPoolWorker-2] korean_drama_Mr_p__Plankton.php
+[2024-06-11 16:14:12,397: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:12,397: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:12,398: WARNING/ForkPoolWorker-2] Mr. Plankton
+[2024-06-11 16:14:12,398: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:12,398: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:12,398: WARNING/ForkPoolWorker-2] korean_drama_The_Mentalist.php
+[2024-06-11 16:14:17,190: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:17,191: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:17,191: WARNING/ForkPoolWorker-2] The Mentalist
+[2024-06-11 16:14:17,191: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:17,191: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:17,191: WARNING/ForkPoolWorker-2] korean_drama_The_Tyrant.php
+[2024-06-11 16:14:29,860: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:29,860: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:29,860: WARNING/ForkPoolWorker-2] The Tyrant
+[2024-06-11 16:14:29,861: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:29,861: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:29,861: WARNING/ForkPoolWorker-2] korean_drama_Study_Group.php
+[2024-06-11 16:14:32,000: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:32,000: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:32,000: WARNING/ForkPoolWorker-2] Study Group
+[2024-06-11 16:14:32,000: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:32,000: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:32,000: WARNING/ForkPoolWorker-2] korean_drama_Such_a_Close_Traitor.php
+[2024-06-11 16:14:33,445: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:33,445: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:33,446: WARNING/ForkPoolWorker-2] Such a Close Traitor
+[2024-06-11 16:14:33,446: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:33,446: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:33,446: WARNING/ForkPoolWorker-2] korean_drama_Resident_Playbook.php
+[2024-06-11 16:14:37,572: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:14:37,572: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:37,572: WARNING/ForkPoolWorker-2] Resident Playbook
+[2024-06-11 16:14:37,572: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:37,572: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:37,572: WARNING/ForkPoolWorker-2] korean_drama_Light_Shop.php
+[2024-06-11 16:14:44,655: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:14:44,656: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:44,656: WARNING/ForkPoolWorker-2] korean_drama_Light_Shop.php
+[2024-06-11 16:14:44,657: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:14:44,657: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:14:44,658: WARNING/ForkPoolWorker-2] korean_drama_Gangnam_B-Side.php
+[2024-06-11 16:15:05,509: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:15:05,510: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:15:05,510: WARNING/ForkPoolWorker-2] korean_drama_Gangnam_B-Side.php
+[2024-06-11 16:15:05,510: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:15:05,510: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:15:05,510: WARNING/ForkPoolWorker-2] korean_drama_Unmasked.php
+[2024-06-11 16:17:24,575: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:17:24,575: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:17:24,575: WARNING/ForkPoolWorker-2] korean_drama_Unmasked.php
+[2024-06-11 16:17:24,575: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:17:24,575: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:17:24,576: WARNING/ForkPoolWorker-2] korean_drama_Cinderella_at_2_AM.php
+[2024-06-11 16:17:37,769: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:17:37,769: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:17:37,769: WARNING/ForkPoolWorker-2] korean_drama_Cinderella_at_2_AM.php
+[2024-06-11 16:17:37,769: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:17:37,769: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:17:37,770: WARNING/ForkPoolWorker-2] korean_drama_Sweet_Home_-_Season_3.php
+[2024-06-11 16:17:54,891: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:17:54,891: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:17:54,891: WARNING/ForkPoolWorker-2] korean_drama_Sweet_Home_-_Season_3.php
+[2024-06-11 16:17:54,891: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:17:54,892: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:17:54,892: WARNING/ForkPoolWorker-2] korean_drama_Gyeongseong_Creature_-_Season_2.php
+[2024-06-11 16:18:08,429: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:18:08,429: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:08,429: WARNING/ForkPoolWorker-2] korean_drama_Gyeongseong_Creature_-_Season_2.php
+[2024-06-11 16:18:08,429: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:18:08,430: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:08,430: WARNING/ForkPoolWorker-2] korean_drama_The_Frog.php
+[2024-06-11 16:18:17,137: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:18:17,137: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:17,137: WARNING/ForkPoolWorker-2] korean_drama_The_Frog.php
+[2024-06-11 16:18:17,138: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:18:17,138: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:17,138: WARNING/ForkPoolWorker-2] korean_drama_The_Cursed_Season_2.php
+[2024-06-11 16:18:35,043: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:18:35,043: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:35,043: WARNING/ForkPoolWorker-2] korean_drama_The_Cursed_Season_2.php
+[2024-06-11 16:18:35,043: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:18:35,043: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:35,043: WARNING/ForkPoolWorker-2] korean_drama_Another_Class.php
+[2024-06-11 16:18:43,590: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:18:43,590: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:43,590: WARNING/ForkPoolWorker-2] korean_drama_Another_Class.php
+[2024-06-11 16:18:43,591: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:18:43,591: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:43,591: WARNING/ForkPoolWorker-2] korean_drama_The_Fairy_and_the_Bald_Idol.php
+[2024-06-11 16:18:52,952: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:18:52,952: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:52,952: WARNING/ForkPoolWorker-2] korean_drama_The_Fairy_and_the_Bald_Idol.php
+[2024-06-11 16:18:52,952: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:18:52,953: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:52,953: WARNING/ForkPoolWorker-2] korean_drama_Illumination.php
+[2024-06-11 16:18:56,537: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:18:56,538: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:56,538: WARNING/ForkPoolWorker-2] korean_drama_Illumination.php
+[2024-06-11 16:18:56,538: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:18:56,538: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:18:56,538: WARNING/ForkPoolWorker-2] korean_drama_Queen_of_the_Scene.php
+[2024-06-11 16:19:01,539: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:01,539: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:01,539: WARNING/ForkPoolWorker-2] korean_drama_Queen_of_the_Scene.php
+[2024-06-11 16:19:01,540: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:01,540: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:01,540: WARNING/ForkPoolWorker-2] korean_drama_When_the_Day_Breaks.php
+[2024-06-11 16:19:07,502: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:07,502: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:07,502: WARNING/ForkPoolWorker-2] korean_drama_When_the_Day_Breaks.php
+[2024-06-11 16:19:07,503: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:07,503: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:07,503: WARNING/ForkPoolWorker-2] korean_drama_Tunnel_-_2022.php
+[2024-06-11 16:19:10,842: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:10,843: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:10,843: WARNING/ForkPoolWorker-2] korean_drama_Tunnel_-_2022.php
+[2024-06-11 16:19:10,843: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:10,843: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:10,844: WARNING/ForkPoolWorker-2] korean_drama_History_of_Nerds.php
+[2024-06-11 16:19:17,983: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:17,984: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:17,984: WARNING/ForkPoolWorker-2] korean_drama_History_of_Nerds.php
+[2024-06-11 16:19:17,984: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:17,984: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:17,984: WARNING/ForkPoolWorker-2] korean_drama_DEEP_-_Drama.php
+[2024-06-11 16:19:23,867: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:23,867: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:23,867: WARNING/ForkPoolWorker-2] korean_drama_DEEP_-_Drama.php
+[2024-06-11 16:19:23,867: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:23,867: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:23,867: WARNING/ForkPoolWorker-2] korean_drama_YOUTH.php
+[2024-06-11 16:19:35,339: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:35,340: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:35,340: WARNING/ForkPoolWorker-2] korean_drama_YOUTH.php
+[2024-06-11 16:19:35,340: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:35,340: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:35,340: WARNING/ForkPoolWorker-2] korean_drama_A_Decent_Family.php
+[2024-06-11 16:19:47,589: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:47,590: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:47,590: WARNING/ForkPoolWorker-2] korean_drama_A_Decent_Family.php
+[2024-06-11 16:19:47,590: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:47,590: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:47,590: WARNING/ForkPoolWorker-2] korean_drama_Killer_Queen.php
+[2024-06-11 16:19:57,449: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:19:57,449: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:57,449: WARNING/ForkPoolWorker-2] korean_drama_Killer_Queen.php
+[2024-06-11 16:19:57,449: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:19:57,449: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:19:57,450: WARNING/ForkPoolWorker-2] korean_drama_YAHOO.php
+[2024-06-11 16:20:08,929: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:20:08,930: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:08,930: WARNING/ForkPoolWorker-2] korean_drama_YAHOO.php
+[2024-06-11 16:20:08,930: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:20:08,930: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:08,930: WARNING/ForkPoolWorker-2] korean_drama_Gangster.php
+[2024-06-11 16:20:18,977: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:20:18,977: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:18,978: WARNING/ForkPoolWorker-2] korean_drama_Gangster.php
+[2024-06-11 16:20:18,978: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:20:18,978: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:18,978: WARNING/ForkPoolWorker-2] korean_drama_Concrete_Market.php
+[2024-06-11 16:20:30,971: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:20:30,971: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:30,972: WARNING/ForkPoolWorker-2] korean_drama_Concrete_Market.php
+[2024-06-11 16:20:30,972: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:20:30,972: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:30,972: WARNING/ForkPoolWorker-2] korean_drama_Bad_Memory_Eraser.php
+[2024-06-11 16:20:41,791: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:20:41,791: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:41,791: WARNING/ForkPoolWorker-2] korean_drama_Bad_Memory_Eraser.php
+[2024-06-11 16:20:41,792: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:20:41,792: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:41,792: WARNING/ForkPoolWorker-2] korean_drama_The_Dude_in_Me_-_Drama.php
+[2024-06-11 16:20:47,228: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:20:47,228: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:47,228: WARNING/ForkPoolWorker-2] korean_drama_The_Dude_in_Me_-_Drama.php
+[2024-06-11 16:20:47,229: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:20:47,229: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:47,229: WARNING/ForkPoolWorker-2] korean_drama_I_Love_You_Too.php
+[2024-06-11 16:20:56,820: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:20:56,820: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:56,821: WARNING/ForkPoolWorker-2] korean_drama_I_Love_You_Too.php
+[2024-06-11 16:20:56,821: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:20:56,821: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:20:56,821: WARNING/ForkPoolWorker-2] korean_drama_VR_Prison.php
+[2024-06-11 16:21:02,075: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:02,075: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:02,075: WARNING/ForkPoolWorker-2] korean_drama_VR_Prison.php
+[2024-06-11 16:21:02,075: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:02,076: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:02,076: WARNING/ForkPoolWorker-2] korean_drama_This_Is_Law.php
+[2024-06-11 16:21:07,501: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:07,501: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:07,501: WARNING/ForkPoolWorker-2] korean_drama_This_Is_Law.php
+[2024-06-11 16:21:07,502: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:07,502: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:07,502: WARNING/ForkPoolWorker-2] korean_drama_Hope_You_Mind.php
+[2024-06-11 16:21:16,734: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:16,734: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:16,735: WARNING/ForkPoolWorker-2] korean_drama_Hope_You_Mind.php
+[2024-06-11 16:21:16,735: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:16,735: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:16,735: WARNING/ForkPoolWorker-2] korean_drama_Immortal_Days.php
+[2024-06-11 16:21:29,937: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:29,937: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:29,937: WARNING/ForkPoolWorker-2] korean_drama_Immortal_Days.php
+[2024-06-11 16:21:29,937: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:29,938: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:29,938: WARNING/ForkPoolWorker-2] korean_drama_Evil_Lady.php
+[2024-06-11 16:21:37,348: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:37,348: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:37,349: WARNING/ForkPoolWorker-2] korean_drama_Evil_Lady.php
+[2024-06-11 16:21:37,349: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:37,349: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:37,349: WARNING/ForkPoolWorker-2] korean_drama_SHINJIKKI.php
+[2024-06-11 16:21:46,597: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:46,597: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:46,598: WARNING/ForkPoolWorker-2] korean_drama_SHINJIKKI.php
+[2024-06-11 16:21:46,598: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:46,598: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:46,598: WARNING/ForkPoolWorker-2] korean_drama_Late_Night_Photo_Studio.php
+[2024-06-11 16:21:55,212: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:21:55,212: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:55,212: WARNING/ForkPoolWorker-2] korean_drama_Late_Night_Photo_Studio.php
+[2024-06-11 16:21:55,212: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:21:55,212: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:21:55,212: WARNING/ForkPoolWorker-2] korean_drama_The_Worst_Boy_in_the_World.php
+[2024-06-11 16:22:05,054: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:05,054: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:05,054: WARNING/ForkPoolWorker-2] korean_drama_The_Worst_Boy_in_the_World.php
+[2024-06-11 16:22:05,054: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:05,054: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:05,054: WARNING/ForkPoolWorker-2] korean_drama_The_Great_Shaman_Ga_Doo-shim_-_Season_2.php
+[2024-06-11 16:22:11,592: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:11,592: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:11,592: WARNING/ForkPoolWorker-2] korean_drama_The_Great_Shaman_Ga_Doo-shim_-_Season_2.php
+[2024-06-11 16:22:11,593: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:11,593: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:11,593: WARNING/ForkPoolWorker-2] korean_drama_Sujin_Food_Truck.php
+[2024-06-11 16:22:29,379: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:29,379: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:29,380: WARNING/ForkPoolWorker-2] korean_drama_Sujin_Food_Truck.php
+[2024-06-11 16:22:29,380: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:29,380: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:29,380: WARNING/ForkPoolWorker-2] korean_drama_Taoist_Meoteol_-_Drama.php
+[2024-06-11 16:22:34,214: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:34,214: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:34,214: WARNING/ForkPoolWorker-2] korean_drama_Taoist_Meoteol_-_Drama.php
+[2024-06-11 16:22:34,214: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:34,214: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:34,214: WARNING/ForkPoolWorker-2] korean_drama_Borrowed_Body.php
+[2024-06-11 16:22:44,258: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:44,258: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:44,258: WARNING/ForkPoolWorker-2] korean_drama_Borrowed_Body.php
+[2024-06-11 16:22:44,258: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:44,258: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:44,258: WARNING/ForkPoolWorker-2] korean_drama_Mission_Two_2p__Possible.php
+[2024-06-11 16:22:50,703: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:50,703: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:50,703: WARNING/ForkPoolWorker-2] korean_drama_Mission_Two_2p__Possible.php
+[2024-06-11 16:22:50,703: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:50,703: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:50,704: WARNING/ForkPoolWorker-2] korean_drama_Demon_King.php
+[2024-06-11 16:22:54,381: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:54,381: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:54,381: WARNING/ForkPoolWorker-2] korean_drama_Demon_King.php
+[2024-06-11 16:22:54,381: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:54,381: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:54,381: WARNING/ForkPoolWorker-2] korean_drama_Timetable.php
+[2024-06-11 16:22:59,634: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:22:59,634: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:59,634: WARNING/ForkPoolWorker-2] korean_drama_Timetable.php
+[2024-06-11 16:22:59,635: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:22:59,635: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:22:59,635: WARNING/ForkPoolWorker-2] korean_drama_Things_Have_Fallen_Off.php
+[2024-06-11 16:24:36,744: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:24:36,744: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:24:36,744: WARNING/ForkPoolWorker-2] korean_drama_Things_Have_Fallen_Off.php
+[2024-06-11 16:24:36,744: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:24:36,744: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:24:36,744: WARNING/ForkPoolWorker-2] korean_drama_Sparkling_Oh_e_Life.php
+[2024-06-11 16:24:54,482: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:24:54,483: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:24:54,483: WARNING/ForkPoolWorker-2] korean_drama_Sparkling_Oh_e_Life.php
+[2024-06-11 16:24:54,483: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:24:54,483: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:24:54,483: WARNING/ForkPoolWorker-2] korean_drama_The_Blue_House_Family.php
+[2024-06-11 16:25:06,123: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:06,123: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:06,123: WARNING/ForkPoolWorker-2] korean_drama_The_Blue_House_Family.php
+[2024-06-11 16:25:06,124: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:06,124: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:06,124: WARNING/ForkPoolWorker-2] korean_drama_Curvature.php
+[2024-06-11 16:25:13,422: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:13,422: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:13,423: WARNING/ForkPoolWorker-2] korean_drama_Curvature.php
+[2024-06-11 16:25:13,423: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:13,423: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:13,423: WARNING/ForkPoolWorker-2] korean_drama_Inconvenient_Convenience_Store.php
+[2024-06-11 16:25:18,397: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:18,399: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:18,399: WARNING/ForkPoolWorker-2] korean_drama_Inconvenient_Convenience_Store.php
+[2024-06-11 16:25:18,400: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:18,400: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:18,400: WARNING/ForkPoolWorker-2] korean_drama_Road_of_Money.php
+[2024-06-11 16:25:23,628: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:23,629: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:23,629: WARNING/ForkPoolWorker-2] korean_drama_Road_of_Money.php
+[2024-06-11 16:25:23,629: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:23,629: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:23,630: WARNING/ForkPoolWorker-2] korean_drama_The_Winner_of_the_Lottery_Will_Go_to_Work.php
+[2024-06-11 16:25:28,482: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:28,482: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:28,482: WARNING/ForkPoolWorker-2] korean_drama_The_Winner_of_the_Lottery_Will_Go_to_Work.php
+[2024-06-11 16:25:28,482: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:28,483: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:28,483: WARNING/ForkPoolWorker-2] korean_drama_A_Detective_Game.php
+[2024-06-11 16:25:31,778: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:31,779: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:31,779: WARNING/ForkPoolWorker-2] korean_drama_A_Detective_Game.php
+[2024-06-11 16:25:31,780: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:31,780: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:31,781: WARNING/ForkPoolWorker-2] korean_drama_Smash_It_Girl.php
+[2024-06-11 16:25:35,608: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:35,608: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:35,608: WARNING/ForkPoolWorker-2] korean_drama_Smash_It_Girl.php
+[2024-06-11 16:25:35,609: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:35,609: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:35,609: WARNING/ForkPoolWorker-2] korean_drama_Your_Time.php
+[2024-06-11 16:25:41,171: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:41,171: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:41,171: WARNING/ForkPoolWorker-2] korean_drama_Your_Time.php
+[2024-06-11 16:25:41,172: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:41,172: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:41,172: WARNING/ForkPoolWorker-2] korean_drama_Poongwolju.php
+[2024-06-11 16:25:53,877: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:25:53,877: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:53,878: WARNING/ForkPoolWorker-2] korean_drama_Poongwolju.php
+[2024-06-11 16:25:53,878: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:25:53,878: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:25:53,878: WARNING/ForkPoolWorker-2] korean_drama_I_See_Your_Money.php
+[2024-06-11 16:26:00,306: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:00,307: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:00,308: WARNING/ForkPoolWorker-2] korean_drama_I_See_Your_Money.php
+[2024-06-11 16:26:00,308: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:00,308: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:00,309: WARNING/ForkPoolWorker-2] korean_drama_Fist_Writer.php
+[2024-06-11 16:26:02,805: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:02,805: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:02,805: WARNING/ForkPoolWorker-2] korean_drama_Fist_Writer.php
+[2024-06-11 16:26:02,806: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:02,806: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:02,806: WARNING/ForkPoolWorker-2] korean_drama_4_Minutes_and_44_Seconds.php
+[2024-06-11 16:26:07,377: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:07,377: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:07,377: WARNING/ForkPoolWorker-2] korean_drama_4_Minutes_and_44_Seconds.php
+[2024-06-11 16:26:07,378: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:07,378: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:07,378: WARNING/ForkPoolWorker-2] korean_drama_The_Witch.php
+[2024-06-11 16:26:15,263: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:15,264: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:15,265: WARNING/ForkPoolWorker-2] korean_drama_The_Witch.php
+[2024-06-11 16:26:15,265: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:15,266: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:15,266: WARNING/ForkPoolWorker-2] korean_drama_Aqua_Man.php
+[2024-06-11 16:26:21,279: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:21,280: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:21,280: WARNING/ForkPoolWorker-2] korean_drama_Aqua_Man.php
+[2024-06-11 16:26:21,280: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:21,280: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:21,280: WARNING/ForkPoolWorker-2] korean_drama_Goblin_Eunuch.php
+[2024-06-11 16:26:27,004: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:27,004: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:27,004: WARNING/ForkPoolWorker-2] korean_drama_Goblin_Eunuch.php
+[2024-06-11 16:26:27,005: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:27,005: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:27,005: WARNING/ForkPoolWorker-2] korean_drama_About_Revenge.php
+[2024-06-11 16:26:29,958: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:29,958: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:29,958: WARNING/ForkPoolWorker-2] korean_drama_About_Revenge.php
+[2024-06-11 16:26:29,959: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:29,959: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:29,959: WARNING/ForkPoolWorker-2] korean_drama_Prince_Sado.php
+[2024-06-11 16:26:40,697: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:40,697: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:40,698: WARNING/ForkPoolWorker-2] korean_drama_Prince_Sado.php
+[2024-06-11 16:26:40,698: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:40,699: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:40,699: WARNING/ForkPoolWorker-2] korean_drama_All_of_Us_Are_Dead_-_Season_2.php
+[2024-06-11 16:26:51,881: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:51,881: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:51,882: WARNING/ForkPoolWorker-2] korean_drama_All_of_Us_Are_Dead_-_Season_2.php
+[2024-06-11 16:26:51,882: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:51,882: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:51,882: WARNING/ForkPoolWorker-2] korean_drama_Villains.php
+[2024-06-11 16:26:58,154: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:26:58,155: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:58,155: WARNING/ForkPoolWorker-2] korean_drama_Villains.php
+[2024-06-11 16:26:58,156: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:26:58,156: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:26:58,156: WARNING/ForkPoolWorker-2] korean_drama_Squid_Game_-_Season_2.php
+[2024-06-11 16:27:05,473: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:05,473: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:05,474: WARNING/ForkPoolWorker-2] korean_drama_Squid_Game_-_Season_2.php
+[2024-06-11 16:27:05,474: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:05,475: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:05,475: WARNING/ForkPoolWorker-2] korean_drama_Luna__s_Reversal.php
+[2024-06-11 16:27:26,382: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:26,383: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:26,383: WARNING/ForkPoolWorker-2] korean_drama_Luna__s_Reversal.php
+[2024-06-11 16:27:26,383: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:26,383: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:26,383: WARNING/ForkPoolWorker-2] korean_drama_Shark_2p__The_Storm.php
+[2024-06-11 16:27:30,563: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:30,566: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:30,567: WARNING/ForkPoolWorker-2] korean_drama_Shark_2p__The_Storm.php
+[2024-06-11 16:27:30,568: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:30,569: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:30,569: WARNING/ForkPoolWorker-2] korean_drama_She__s_My_Type.php
+[2024-06-11 16:27:34,597: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:34,597: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:34,598: WARNING/ForkPoolWorker-2] korean_drama_She__s_My_Type.php
+[2024-06-11 16:27:34,598: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:34,598: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:34,598: WARNING/ForkPoolWorker-2] korean_drama_Summer_Vacation.php
+[2024-06-11 16:27:44,281: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:44,282: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:44,282: WARNING/ForkPoolWorker-2] korean_drama_Summer_Vacation.php
+[2024-06-11 16:27:44,283: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:44,283: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:44,284: WARNING/ForkPoolWorker-2] korean_drama_The_Festival_Has_Started.php
+[2024-06-11 16:27:47,045: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:47,045: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:47,045: WARNING/ForkPoolWorker-2] korean_drama_The_Festival_Has_Started.php
+[2024-06-11 16:27:47,045: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:47,045: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:47,046: WARNING/ForkPoolWorker-2] korean_drama_The_Killer_Miss_Lee.php
+[2024-06-11 16:27:57,721: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:27:57,722: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:57,722: WARNING/ForkPoolWorker-2] korean_drama_The_Killer_Miss_Lee.php
+[2024-06-11 16:27:57,722: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:27:57,722: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:27:57,722: WARNING/ForkPoolWorker-2] korean_drama_Hive.php
+[2024-06-11 16:28:02,310: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:02,311: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:02,311: WARNING/ForkPoolWorker-2] korean_drama_Hive.php
+[2024-06-11 16:28:02,312: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:02,313: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:02,314: WARNING/ForkPoolWorker-2] korean_drama_Two_Souls.php
+[2024-06-11 16:28:06,293: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:06,294: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:06,296: WARNING/ForkPoolWorker-2] korean_drama_Two_Souls.php
+[2024-06-11 16:28:06,298: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:06,298: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:06,300: WARNING/ForkPoolWorker-2] korean_drama_Flower_of_Death.php
+[2024-06-11 16:28:20,522: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:20,522: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:20,523: WARNING/ForkPoolWorker-2] korean_drama_Flower_of_Death.php
+[2024-06-11 16:28:20,523: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:20,523: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:20,523: WARNING/ForkPoolWorker-2] korean_drama_Simulation.php
+[2024-06-11 16:28:26,008: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:26,009: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:26,010: WARNING/ForkPoolWorker-2] korean_drama_Simulation.php
+[2024-06-11 16:28:26,010: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:26,010: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:26,010: WARNING/ForkPoolWorker-2] korean_drama_Teamk-k.php
+[2024-06-11 16:28:28,590: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:28,595: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:28,595: WARNING/ForkPoolWorker-2] korean_drama_Teamk-k.php
+[2024-06-11 16:28:28,595: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:28,595: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:28,595: WARNING/ForkPoolWorker-2] korean_drama_Boss_v__Baby.php
+[2024-06-11 16:28:32,162: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:32,163: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:32,163: WARNING/ForkPoolWorker-2] korean_drama_Boss_v__Baby.php
+[2024-06-11 16:28:32,163: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:32,163: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:32,164: WARNING/ForkPoolWorker-2] korean_drama_Coveted_Relationship.php
+[2024-06-11 16:28:49,618: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:49,618: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:49,618: WARNING/ForkPoolWorker-2] korean_drama_Coveted_Relationship.php
+[2024-06-11 16:28:49,618: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:49,619: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:49,619: WARNING/ForkPoolWorker-2] korean_drama_Gyeon-woo_and_Fairy.php
+[2024-06-11 16:28:59,857: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:28:59,858: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:59,858: WARNING/ForkPoolWorker-2] korean_drama_Gyeon-woo_and_Fairy.php
+[2024-06-11 16:28:59,858: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:28:59,858: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:28:59,858: WARNING/ForkPoolWorker-2] korean_drama_When_The_Light_Breaks.php
+[2024-06-11 16:29:01,995: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:01,995: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:01,995: WARNING/ForkPoolWorker-2] korean_drama_When_The_Light_Breaks.php
+[2024-06-11 16:29:01,996: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:01,996: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:01,996: WARNING/ForkPoolWorker-2] korean_drama_Superpower_Boys.php
+[2024-06-11 16:29:08,360: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:08,361: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:08,362: WARNING/ForkPoolWorker-2] korean_drama_Superpower_Boys.php
+[2024-06-11 16:29:08,363: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:08,364: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:08,365: WARNING/ForkPoolWorker-2] korean_drama_0_Confession_1st_Round.php
+[2024-06-11 16:29:21,062: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:21,062: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:21,062: WARNING/ForkPoolWorker-2] korean_drama_0_Confession_1st_Round.php
+[2024-06-11 16:29:21,063: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:21,063: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:21,063: WARNING/ForkPoolWorker-2] korean_drama_Is_It_a_Coincidence_i_.php
+[2024-06-11 16:29:26,662: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:26,662: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:26,663: WARNING/ForkPoolWorker-2] korean_drama_Is_It_a_Coincidence_i_.php
+[2024-06-11 16:29:26,663: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:26,663: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:26,663: WARNING/ForkPoolWorker-2] korean_drama_Hash__s_Shinru.php
+[2024-06-11 16:29:30,883: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:30,883: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:30,884: WARNING/ForkPoolWorker-2] korean_drama_Hash__s_Shinru.php
+[2024-06-11 16:29:30,884: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:30,884: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:30,884: WARNING/ForkPoolWorker-2] korean_drama_Jing_Bi-rok_-_2023.php
+[2024-06-11 16:29:35,598: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:35,599: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:35,599: WARNING/ForkPoolWorker-2] korean_drama_Jing_Bi-rok_-_2023.php
+[2024-06-11 16:29:35,601: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:35,601: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:35,601: WARNING/ForkPoolWorker-2] korean_drama_When_the_Stars_Gossip.php
+[2024-06-11 16:29:42,992: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:29:42,993: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:42,993: WARNING/ForkPoolWorker-2] korean_drama_When_the_Stars_Gossip.php
+[2024-06-11 16:29:42,993: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:42,993: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:42,993: WARNING/ForkPoolWorker-2] korean_drama_It__s_You_v__Out_of_the_Blue.php
+[2024-06-11 16:29:47,666: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:29:47,666: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:47,666: WARNING/ForkPoolWorker-2] It's You, Out of the Blue
+[2024-06-11 16:29:47,666: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:29:47,666: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:29:47,666: WARNING/ForkPoolWorker-2] korean_drama_Heesu_in_Class_2.php
+[2024-06-11 16:30:02,873: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:30:02,873: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:02,873: WARNING/ForkPoolWorker-2] korean_drama_Heesu_in_Class_2.php
+[2024-06-11 16:30:02,874: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:30:02,874: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:02,874: WARNING/ForkPoolWorker-2] korean_drama_Do_You_Remember_Me_i_.php
+[2024-06-11 16:30:07,613: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:30:07,613: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:07,613: WARNING/ForkPoolWorker-2] korean_drama_Do_You_Remember_Me_i_.php
+[2024-06-11 16:30:07,614: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:30:07,614: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:07,614: WARNING/ForkPoolWorker-2] korean_drama_The_Queen_Lives_in_Seoul.php
+[2024-06-11 16:30:27,221: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:30:27,221: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:27,222: WARNING/ForkPoolWorker-2] korean_drama_The_Queen_Lives_in_Seoul.php
+[2024-06-11 16:30:27,222: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:30:27,222: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:27,222: WARNING/ForkPoolWorker-2] korean_drama_Jikpil.php
+[2024-06-11 16:30:32,838: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:30:32,838: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:32,839: WARNING/ForkPoolWorker-2] korean_drama_Jikpil.php
+[2024-06-11 16:30:32,839: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:30:32,839: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:32,839: WARNING/ForkPoolWorker-2] korean_drama_Bastard.php
+[2024-06-11 16:30:39,448: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:30:39,448: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:39,449: WARNING/ForkPoolWorker-2] korean_drama_Bastard.php
+[2024-06-11 16:30:39,449: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:30:39,449: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:30:39,450: WARNING/ForkPoolWorker-2] korean_drama_Me_and_Our_Stories.php
+[2024-06-11 16:31:16,482: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:31:16,484: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:16,484: WARNING/ForkPoolWorker-2] korean_drama_Me_and_Our_Stories.php
+[2024-06-11 16:31:16,485: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:31:16,485: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:16,485: WARNING/ForkPoolWorker-2] korean_drama_ONE_Drama.php
+[2024-06-11 16:31:23,751: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:31:23,752: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:23,752: WARNING/ForkPoolWorker-2] korean_drama_ONE_Drama.php
+[2024-06-11 16:31:23,752: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:31:23,753: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:23,753: WARNING/ForkPoolWorker-2] korean_drama_Look_at_Me.php
+[2024-06-11 16:31:29,512: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:31:29,513: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:29,513: WARNING/ForkPoolWorker-2] korean_drama_Look_at_Me.php
+[2024-06-11 16:31:29,514: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:31:29,514: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:29,514: WARNING/ForkPoolWorker-2] korean_drama_The_Mysterious_Candy_Store.php
+[2024-06-11 16:31:45,663: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:31:45,663: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:45,663: WARNING/ForkPoolWorker-2] korean_drama_The_Mysterious_Candy_Store.php
+[2024-06-11 16:31:45,664: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:31:45,664: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:45,664: WARNING/ForkPoolWorker-2] korean_drama_Spirit_Fingers.php
+[2024-06-11 16:31:59,700: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:31:59,700: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:59,700: WARNING/ForkPoolWorker-2] korean_drama_Spirit_Fingers.php
+[2024-06-11 16:31:59,701: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:31:59,702: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:31:59,703: WARNING/ForkPoolWorker-2] korean_drama_The_Shaman.php
+[2024-06-11 16:32:13,507: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:32:13,507: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:13,508: WARNING/ForkPoolWorker-2] korean_drama_The_Shaman.php
+[2024-06-11 16:32:13,508: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:32:13,508: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:13,508: WARNING/ForkPoolWorker-2] korean_drama_Memoirs_of_Mercury_Palace.php
+[2024-06-11 16:32:27,469: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:32:27,470: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:27,471: WARNING/ForkPoolWorker-2] korean_drama_Memoirs_of_Mercury_Palace.php
+[2024-06-11 16:32:27,472: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:32:27,473: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:27,474: WARNING/ForkPoolWorker-2] korean_drama_Squid_Game_-_Season_3.php
+[2024-06-11 16:32:42,905: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:32:42,906: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:42,907: WARNING/ForkPoolWorker-2] korean_drama_Squid_Game_-_Season_3.php
+[2024-06-11 16:32:42,908: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:32:42,908: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:42,908: WARNING/ForkPoolWorker-2] korean_drama_Extraordinary_Attorney_Woo_-_Season_2.php
+[2024-06-11 16:32:52,831: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:32:52,835: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:52,835: WARNING/ForkPoolWorker-2] korean_drama_Extraordinary_Attorney_Woo_-_Season_2.php
+[2024-06-11 16:32:52,836: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:32:52,837: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:32:52,838: WARNING/ForkPoolWorker-2] korean_drama_I_Will_Travel_For_You.php
+[2024-06-11 16:33:05,940: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:05,941: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:05,942: WARNING/ForkPoolWorker-2] korean_drama_I_Will_Travel_For_You.php
+[2024-06-11 16:33:05,944: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:05,944: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:05,945: WARNING/ForkPoolWorker-2] korean_drama_The_Trauma_Code_2p__Heroes_on_Call.php
+[2024-06-11 16:33:12,351: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:12,352: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:12,353: WARNING/ForkPoolWorker-2] korean_drama_The_Trauma_Code_2p__Heroes_on_Call.php
+[2024-06-11 16:33:12,354: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:12,354: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:12,355: WARNING/ForkPoolWorker-2] korean_drama_Peach_Tomorrow_v__Too.php
+[2024-06-11 16:33:18,853: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:18,853: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:18,854: WARNING/ForkPoolWorker-2] korean_drama_Peach_Tomorrow_v__Too.php
+[2024-06-11 16:33:18,854: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:18,855: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:18,856: WARNING/ForkPoolWorker-2] korean_drama_A_Bird__s_Eye.php
+[2024-06-11 16:33:27,439: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:27,441: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:27,441: WARNING/ForkPoolWorker-2] korean_drama_A_Bird__s_Eye.php
+[2024-06-11 16:33:27,442: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:27,442: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:27,442: WARNING/ForkPoolWorker-2] korean_drama_I_Live_in_Seoul.php
+[2024-06-11 16:33:32,373: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:32,374: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:32,374: WARNING/ForkPoolWorker-2] korean_drama_I_Live_in_Seoul.php
+[2024-06-11 16:33:32,374: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:32,374: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:32,374: WARNING/ForkPoolWorker-2] korean_drama_Perfect_Family.php
+[2024-06-11 16:33:46,233: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:46,233: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:46,234: WARNING/ForkPoolWorker-2] korean_drama_Perfect_Family.php
+[2024-06-11 16:33:46,235: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:46,235: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:46,236: WARNING/ForkPoolWorker-2] korean_drama_A_Lucky_Day.php
+[2024-06-11 16:33:53,110: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:33:53,110: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:53,111: WARNING/ForkPoolWorker-2] korean_drama_A_Lucky_Day.php
+[2024-06-11 16:33:53,111: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:33:53,111: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:33:53,112: WARNING/ForkPoolWorker-2] korean_drama_I_Am_a_Running_Mate.php
+[2024-06-11 16:34:05,119: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:34:05,120: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:05,121: WARNING/ForkPoolWorker-2] korean_drama_I_Am_a_Running_Mate.php
+[2024-06-11 16:34:05,121: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:34:05,122: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:05,122: WARNING/ForkPoolWorker-2] korean_drama_Aema.php
+[2024-06-11 16:34:16,043: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:34:16,043: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:16,043: WARNING/ForkPoolWorker-2] korean_drama_Aema.php
+[2024-06-11 16:34:16,043: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:34:16,044: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:16,044: WARNING/ForkPoolWorker-2] korean_drama_Chunhwa_Love_Story.php
+[2024-06-11 16:34:26,029: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:34:26,029: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:26,029: WARNING/ForkPoolWorker-2] korean_drama_Chunhwa_Love_Story.php
+[2024-06-11 16:34:26,030: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:34:26,030: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:26,030: WARNING/ForkPoolWorker-2] korean_drama_Andante_of_Love.php
+[2024-06-11 16:34:36,711: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:34:36,711: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:36,712: WARNING/ForkPoolWorker-2] korean_drama_Andante_of_Love.php
+[2024-06-11 16:34:36,712: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:34:36,712: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:36,712: WARNING/ForkPoolWorker-2] korean_drama_Hong_Rang.php
+[2024-06-11 16:34:53,189: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:34:53,190: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:53,191: WARNING/ForkPoolWorker-2] korean_drama_Hong_Rang.php
+[2024-06-11 16:34:53,192: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:34:53,193: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:34:53,193: WARNING/ForkPoolWorker-2] korean_drama_Can_This_Love_Be_Translated_i_.php
+[2024-06-11 16:35:12,328: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:35:12,329: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:12,330: WARNING/ForkPoolWorker-2] korean_drama_Can_This_Love_Be_Translated_i_.php
+[2024-06-11 16:35:12,331: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:35:12,332: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:12,332: WARNING/ForkPoolWorker-2] korean_drama_Flirt_and_Shopping.php
+[2024-06-11 16:35:18,615: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:35:18,616: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:18,617: WARNING/ForkPoolWorker-2] korean_drama_Flirt_and_Shopping.php
+[2024-06-11 16:35:18,618: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:35:18,618: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:18,619: WARNING/ForkPoolWorker-2] korean_drama_Mercy_for_None.php
+[2024-06-11 16:35:35,963: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:35:35,964: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:35,965: WARNING/ForkPoolWorker-2] korean_drama_Mercy_for_None.php
+[2024-06-11 16:35:35,966: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:35:35,968: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:35,969: WARNING/ForkPoolWorker-2] korean_drama_Miss_Granny_-_Drama.php
+[2024-06-11 16:35:44,175: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:35:44,178: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:44,178: WARNING/ForkPoolWorker-2] korean_drama_Miss_Granny_-_Drama.php
+[2024-06-11 16:35:44,179: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:35:44,179: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:44,180: WARNING/ForkPoolWorker-2] korean_drama_Karma.php
+[2024-06-11 16:35:50,547: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:35:50,547: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:50,548: WARNING/ForkPoolWorker-2] korean_drama_Karma.php
+[2024-06-11 16:35:50,548: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:35:50,549: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:50,550: WARNING/ForkPoolWorker-2] korean_drama_Sculptured_City.php
+[2024-06-11 16:35:56,788: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:35:56,789: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:56,789: WARNING/ForkPoolWorker-2] korean_drama_Sculptured_City.php
+[2024-06-11 16:35:56,794: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:35:56,805: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:35:56,806: WARNING/ForkPoolWorker-2] korean_drama_The_Murder_Case_of_the_Visiting_Teacher_in_Apartment_J.php
+[2024-06-11 16:36:02,162: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:36:02,163: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:36:02,164: WARNING/ForkPoolWorker-2] korean_drama_The_Murder_Case_of_the_Visiting_Teacher_in_Apartment_J.php
+[2024-06-11 16:36:02,165: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:36:02,165: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:36:02,165: WARNING/ForkPoolWorker-2] korean_drama_Suicide_Signal_Detected.php
+[2024-06-11 16:36:09,083: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:36:09,084: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:36:09,084: WARNING/ForkPoolWorker-2] korean_drama_Suicide_Signal_Detected.php
+[2024-06-11 16:36:09,085: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:36:09,085: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:36:09,085: WARNING/ForkPoolWorker-2] korean_drama_Mary_Chris_House.php
+[2024-06-11 16:36:17,323: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:36:17,324: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:36:17,325: WARNING/ForkPoolWorker-2] korean_drama_Mary_Chris_House.php
+[2024-06-11 16:36:17,325: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:36:17,326: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:36:17,327: WARNING/ForkPoolWorker-2] korean_drama_Love_in_the_Big_City_-_Drama.php
+[2024-06-11 16:37:23,053: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:37:23,054: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:23,054: WARNING/ForkPoolWorker-2] korean_drama_Love_in_the_Big_City_-_Drama.php
+[2024-06-11 16:37:23,056: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:37:23,057: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:23,057: WARNING/ForkPoolWorker-2] korean_drama_Kind_Gentleman.php
+[2024-06-11 16:37:35,277: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:37:35,278: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:35,279: WARNING/ForkPoolWorker-2] korean_drama_Kind_Gentleman.php
+[2024-06-11 16:37:35,280: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:37:35,281: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:35,281: WARNING/ForkPoolWorker-2] korean_drama_Family_X_Melo.php
+[2024-06-11 16:37:40,614: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:37:40,614: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:40,615: WARNING/ForkPoolWorker-2] korean_drama_Family_X_Melo.php
+[2024-06-11 16:37:40,616: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:37:40,617: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:40,618: WARNING/ForkPoolWorker-2] korean_drama_I__m_Home.php
+[2024-06-11 16:37:56,374: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:37:56,374: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:56,374: WARNING/ForkPoolWorker-2] korean_drama_I__m_Home.php
+[2024-06-11 16:37:56,374: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:37:56,375: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:37:56,375: WARNING/ForkPoolWorker-2] korean_drama_Dongjae_v__The_Good_Or_The_Bastard.php
+[2024-06-11 16:38:12,646: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:38:12,646: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:12,647: WARNING/ForkPoolWorker-2] korean_drama_Dongjae_v__The_Good_Or_The_Bastard.php
+[2024-06-11 16:38:12,647: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:38:12,648: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:12,648: WARNING/ForkPoolWorker-2] korean_drama_Weak_Hero_Class_2.php
+[2024-06-11 16:38:20,368: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:38:20,368: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:20,369: WARNING/ForkPoolWorker-2] korean_drama_Weak_Hero_Class_2.php
+[2024-06-11 16:38:20,369: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:38:20,369: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:20,370: WARNING/ForkPoolWorker-2] korean_drama_A_Prefabricated_Family.php
+[2024-06-11 16:38:31,052: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:38:31,053: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:31,054: WARNING/ForkPoolWorker-2] korean_drama_A_Prefabricated_Family.php
+[2024-06-11 16:38:31,054: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:38:31,055: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:31,056: WARNING/ForkPoolWorker-2] korean_drama_Thirty.php
+[2024-06-11 16:38:48,957: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:38:48,958: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:48,958: WARNING/ForkPoolWorker-2] korean_drama_Thirty.php
+[2024-06-11 16:38:48,959: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:38:48,959: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:48,959: WARNING/ForkPoolWorker-2] korean_drama_The_Chain.php
+[2024-06-11 16:38:56,248: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:38:56,249: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:56,249: WARNING/ForkPoolWorker-2] korean_drama_The_Chain.php
+[2024-06-11 16:38:56,250: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:38:56,250: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:38:56,250: WARNING/ForkPoolWorker-2] korean_drama_I__m_Against_My_Romance.php
+[2024-06-11 16:39:09,528: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:39:09,528: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:09,529: WARNING/ForkPoolWorker-2] korean_drama_I__m_Against_My_Romance.php
+[2024-06-11 16:39:09,529: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:09,530: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:09,531: WARNING/ForkPoolWorker-2] korean_drama_Murky_Water.php
+[2024-06-11 16:39:21,345: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:39:21,346: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:21,348: WARNING/ForkPoolWorker-2] korean_drama_Murky_Water.php
+[2024-06-11 16:39:21,349: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:21,349: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:21,350: WARNING/ForkPoolWorker-2] korean_drama_Juvenile_Justice_-_Season_2.php
+[2024-06-11 16:39:26,818: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:39:26,819: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:26,820: WARNING/ForkPoolWorker-2] korean_drama_Juvenile_Justice_-_Season_2.php
+[2024-06-11 16:39:26,820: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:26,820: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:26,820: WARNING/ForkPoolWorker-2] korean_drama_Kingdom_-_Season_3.php
+[2024-06-11 16:39:30,253: WARNING/ForkPoolWorker-2] Drama already exist
+[2024-06-11 16:39:30,255: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:30,256: WARNING/ForkPoolWorker-2] Kingdom: Ashin of the North
+[2024-06-11 16:39:30,257: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:30,257: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:30,258: WARNING/ForkPoolWorker-2] korean_drama_Influenza_-_Drama.php
+[2024-06-11 16:39:39,175: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:39:39,176: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:39,177: WARNING/ForkPoolWorker-2] korean_drama_Influenza_-_Drama.php
+[2024-06-11 16:39:39,177: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:39,178: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:39,179: WARNING/ForkPoolWorker-2] korean_drama_Good_Boy.php
+[2024-06-11 16:39:52,334: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:39:52,339: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:52,340: WARNING/ForkPoolWorker-2] korean_drama_Good_Boy.php
+[2024-06-11 16:39:52,340: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:52,341: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:52,342: WARNING/ForkPoolWorker-2] korean_drama_The_Mantis.php
+[2024-06-11 16:39:58,582: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:39:58,583: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:58,583: WARNING/ForkPoolWorker-2] korean_drama_The_Mantis.php
+[2024-06-11 16:39:58,583: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:39:58,583: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:39:58,584: WARNING/ForkPoolWorker-2] korean_drama_Tarot.php
+[2024-06-11 16:40:16,337: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:40:16,338: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:16,339: WARNING/ForkPoolWorker-2] korean_drama_Tarot.php
+[2024-06-11 16:40:16,340: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:40:16,340: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:16,341: WARNING/ForkPoolWorker-2] korean_drama_The_Master_of_Confession.php
+[2024-06-11 16:40:25,020: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:40:25,022: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:25,023: WARNING/ForkPoolWorker-2] korean_drama_The_Master_of_Confession.php
+[2024-06-11 16:40:25,023: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:40:25,024: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:25,026: WARNING/ForkPoolWorker-2] korean_drama_Two_Women.php
+[2024-06-11 16:40:40,845: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:40:40,845: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:40,845: WARNING/ForkPoolWorker-2] korean_drama_Two_Women.php
+[2024-06-11 16:40:40,846: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:40:40,846: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:40,847: WARNING/ForkPoolWorker-2] korean_drama_MY_YOUTH.php
+[2024-06-11 16:40:53,288: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:40:53,288: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:53,289: WARNING/ForkPoolWorker-2] korean_drama_MY_YOUTH.php
+[2024-06-11 16:40:53,290: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:40:53,291: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:40:53,292: WARNING/ForkPoolWorker-2] korean_drama_Love_on_a_Single_Log_Bridge.php
+[2024-06-11 16:41:05,727: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:05,728: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:05,728: WARNING/ForkPoolWorker-2] korean_drama_Love_on_a_Single_Log_Bridge.php
+[2024-06-11 16:41:05,728: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:05,729: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:05,730: WARNING/ForkPoolWorker-2] korean_drama_When_Life_Gives_You_Tangerines.php
+[2024-06-11 16:41:11,650: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:11,650: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:11,651: WARNING/ForkPoolWorker-2] korean_drama_When_Life_Gives_You_Tangerines.php
+[2024-06-11 16:41:11,651: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:11,651: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:11,651: WARNING/ForkPoolWorker-2] korean_drama_Heo__s_Restaurant.php
+[2024-06-11 16:41:27,623: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:27,624: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:27,625: WARNING/ForkPoolWorker-2] korean_drama_Heo__s_Restaurant.php
+[2024-06-11 16:41:27,625: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:27,626: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:27,626: WARNING/ForkPoolWorker-2] korean_drama_Melo_Movie.php
+[2024-06-11 16:41:34,736: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:34,736: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:34,736: WARNING/ForkPoolWorker-2] korean_drama_Melo_Movie.php
+[2024-06-11 16:41:34,736: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:34,736: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:34,736: WARNING/ForkPoolWorker-2] korean_drama_I_Kill_You.php
+[2024-06-11 16:41:40,405: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:40,405: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:40,405: WARNING/ForkPoolWorker-2] korean_drama_I_Kill_You.php
+[2024-06-11 16:41:40,405: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:40,406: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:40,406: WARNING/ForkPoolWorker-2] korean_drama_Family_Planning.php
+[2024-06-11 16:41:46,213: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:46,213: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:46,214: WARNING/ForkPoolWorker-2] korean_drama_Family_Planning.php
+[2024-06-11 16:41:46,215: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:46,215: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:46,215: WARNING/ForkPoolWorker-2] korean_drama_Bossam_-_The_Second_Story.php
+[2024-06-11 16:41:56,655: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:41:56,656: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:56,656: WARNING/ForkPoolWorker-2] korean_drama_Bossam_-_The_Second_Story.php
+[2024-06-11 16:41:56,658: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:41:56,659: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:41:56,659: WARNING/ForkPoolWorker-2] korean_drama_i_Shopping.php
+[2024-06-11 16:42:06,227: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:42:06,228: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:42:06,230: WARNING/ForkPoolWorker-2] korean_drama_i_Shopping.php
+[2024-06-11 16:42:06,232: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:42:06,232: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:42:06,232: WARNING/ForkPoolWorker-2] korean_drama_What_Comes_After_Love.php
+[2024-06-11 16:42:15,175: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:42:15,175: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:42:15,175: WARNING/ForkPoolWorker-2] korean_drama_What_Comes_After_Love.php
+[2024-06-11 16:42:15,175: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:42:15,175: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:42:15,175: WARNING/ForkPoolWorker-2] korean_drama_Pleasant_Outcast.php
+[2024-06-11 16:42:27,008: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:42:27,009: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:42:27,009: WARNING/ForkPoolWorker-2] korean_drama_Pleasant_Outcast.php
+[2024-06-11 16:42:27,009: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:42:27,009: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:42:27,009: WARNING/ForkPoolWorker-2] korean_drama_TRY_2p__We_Are_a_Miracle.php
+[2024-06-11 16:43:00,7Description
+We want you to calculate the sum of squares of given integers, excluding any negatives.
+The first line of the input will be an integer N (1 <= N <= 100), indicating the number of test cases to follow.
+Each of the test cases will consist of a line with an integer X (0 < X <= 100), followed by another line consisting of X number of space-separated integers Yn (-100 <= Yn <= 100).
+For each test case, calculate the sum of squares of the integers, excluding any negatives, and print the calculated sum in the output.
+Note: There should be no output until all the input has been received.
+Note 2: Do not put blank lines between test cases solutions.
+Note 3: Take input from standard input, and output to standard output.
+Rules
+Write your solution using Go Programming Language or Python Programming Language. Do not submit your solution with both languages at once!
+
+You may only use standard library packages. In addition, extra point is awarded if solution does not declare any global variables.
+
+Specific rules for Go solution
+Your source code must be a single file
+Do not use any for and goto statement
+Your solution will be tested against Go 1.22 (as of April 2024) or higher
+package main
+
+func main() {
+  ...
+}
+Specific rules for Python solution
+Your source code must be a single file, containing at least a main function
+Do not use any for loop, while loop, or any list / set / dictionary comprehension
+Your solution will be tested against Python 3.12 (as of April 2024) or higher
+def main():
+    ...
+
+
+if __name__ == "__main__":
+    main()
+Sample Input
+2
+4
+3 -1 1 14
+5
+9 6 -53 32 16
+Sample Output
+206
+1397
+73: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:43:00,774: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:00,774: WARNING/ForkPoolWorker-2] korean_drama_TRY_2p__We_Are_a_Miracle.php
+[2024-06-11 16:43:00,774: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:43:00,774: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:00,775: WARNING/ForkPoolWorker-2] korean_drama_Flex_X_Cop_-_Season_2.php
+[2024-06-11 16:43:06,109: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:43:06,109: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:06,109: WARNING/ForkPoolWorker-2] korean_drama_Flex_X_Cop_-_Season_2.php
+[2024-06-11 16:43:06,110: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:43:06,110: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:06,110: WARNING/ForkPoolWorker-2] korean_drama_Delusion.php
+[2024-06-11 16:43:13,812: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:43:13,812: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:13,813: WARNING/ForkPoolWorker-2] korean_drama_Delusion.php
+[2024-06-11 16:43:13,813: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:43:13,813: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:13,813: WARNING/ForkPoolWorker-2] korean_drama_In_the_Net.php
+[2024-06-11 16:43:24,450: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:43:24,451: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:24,451: WARNING/ForkPoolWorker-2] korean_drama_In_the_Net.php
+[2024-06-11 16:43:24,451: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:43:24,451: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:24,451: WARNING/ForkPoolWorker-2] korean_drama_Hyper_Knife.php
+[2024-06-11 16:43:33,994: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:43:33,994: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:33,994: WARNING/ForkPoolWorker-2] korean_drama_Hyper_Knife.php
+[2024-06-11 16:43:33,995: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:43:33,995: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:33,995: WARNING/ForkPoolWorker-2] korean_drama_Cashero.php
+[2024-06-11 16:43:41,097: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:43:41,097: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:41,097: WARNING/ForkPoolWorker-2] korean_drama_Cashero.php
+[2024-06-11 16:43:41,097: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:43:41,097: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:43:41,098: WARNING/ForkPoolWorker-2] korean_drama_To_My_Hae-ri.php
+[2024-06-11 16:46:44,094: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:46:44,094: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:46:44,095: WARNING/ForkPoolWorker-2] korean_drama_Labor_Attorney_Noh_Moo-jin.php
+[2024-06-11 16:46:44,095: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:46:44,095: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:46:44,095: WARNING/ForkPoolWorker-2] korean_drama_Tempest.php
+[2024-06-11 16:46:53,364: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:46:53,365: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:46:53,365: WARNING/ForkPoolWorker-2] korean_drama_Tempest.php
+[2024-06-11 16:46:53,366: WARNING/ForkPoolWorker-2]  started to get Drama ..
+[2024-06-11 16:46:53,367: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:46:53,367: WARNING/ForkPoolWorker-2] korean_drama_Riding_Life.php
+[2024-06-11 16:46:59,763: WARNING/ForkPoolWorker-2]  Finished to get Drama ..
+[2024-06-11 16:46:59,764: WARNING/ForkPoolWorker-2]  
+[2024-06-11 16:46:59,764: WARNING/ForkPoolWorker-2] korean_drama_Riding_Life.php
+[2024-06-11 16:46:59,764: WARNING/ForkPoolWorker-2] Got The all New drama from last 7 days!
+[2024-06-11 16:46:59,766: INFO/ForkPoolWorker-2] Task get_new_kdrama_everyday[6168acaa-0a4d-40e7-8527-d1b77fafa18c] succeeded in 2126.7796618970024s: None
+[2024-06-11 17:00:00,518: INFO/MainProcess] Task get_all_genres_everyday[dcf12648-f97e-4d71-9be8-02a2302c0a5d] received
+[2024-06-11 17:00:01,915: WARNING/ForkPoolWorker-2] All Genres
+[2024-06-11 17:00:01,915: WARNING/ForkPoolWorker-2]  
+[2024-06-11 17:00:01,916: WARNING/ForkPoolWorker-2] [<option value="">-</option>, <option value="action">Action</option>, <option value="aventure">Adventure</option>, <option value="vieillesse">Aging</option>, <option value="animation">Animation</option>, <option value="Anthologie">Anthology</option>, <option value="FilmSonore">Audio Movie</option>, <option value="biographie">Biography</option>, <option value="blboyslove">BL - Boys' Love</option>, <option value="ComedieNoire">Black comedy</option>, <option value="Affaires">Business</option>, <option value="Casse">Caper</option>, <option value="chronique">Chronicle</option>, <option value="comedie">Comedy</option>, <option value="RecitInitiatique">Coming-of-age</option>, <option value="conceptuel">Conceptual</option>, <option value="Costume">Costume</option>, <option value="courtdejustice">Court</option>, <option value="crime">Crime</option>, <option value="Routine">Daily life</option>, <option value="Dance">Dance</option>, <option value="HumourNoir">Dark humor</option>, <option value="policier">Detective</option>, <option value="desastrenaturel">Disaster</option>, <option value="documentaire">Documentary</option>, <option value="drame">Drama</option>, <option value="Dystopie">Dystopia</option>, <option value="education">Education</option>, <option value="emotionnel">Emotional</option>, <option value="erotic">Erotic</option>, <option value="Exorcisme">Exorcism</option>, <option value="experimental">Experimental</option>, <option value="famille">Family</option>, <option value="fantaisie">Fantasy</option>, <option value="peur">Fear</option>, <option value="filmnoir">Film noir</option>, <option value="Amitie">Friendship</option>, <option value="glboyslove">GL - Girls' Love</option>, <option value="heroique">Heroic</option>, <option value="historique">Historical</option>, <option value="horreur">Horror</option>, <option value="humain">Human</option>, <option value="HistoireImaginaire">Imaginary History</option>, <option value="enquete">Investigation</option>, <option value="iptv">IPTV - Internet TV</option>, <option value="kungfu">Kung Fu</option>, <option value="legal">Legal</option>, <option value="artsmartiaux">Martial arts</option>, <option value="medical">Medical</option>, <option value="melodrame">Melodrama</option>, <option value="Mental">Mental/psychologic</option>, <option value="Militaire">Military</option>, <option value="musique">Music</option>, <option value="comediemusicale">Musical</option>, <option value="mystere">Mystery</option>, <option value="occulte">Occult</option>, <option value="Bureau">Office</option>, <option value="compilation">Omnibus</option>, <option value="Politique">Political</option>, <option value="Postapocalypte">Post-apocalyptic</option>, <option value="Provocant">Provocative (Makjang)</option>, <option value="Psychodrame">Psychodrama</option>, <option value="Psychologique">Psychological</option>, <option value="Reincarnation">Reincarnation</option>, <option value="religieux">Religious</option>, <option value="Vengeance">Revenge</option>, <option value="roadmovie">Road movie</option>, <option value="romantique">Romance</option>, <option value="romance">Romantic comedy</option>, <option value="Satire">Satire</option>, <option value="ecole">School</option>, <option value="sciencefiction">Science-Fiction</option>, <option value="scientifique">Scientific</option>, <option value="sensuel">Sensual</option>, <option value="courtmetrage">Short film</option>, <option value="Spectacle">Show/Performance</option>, <option value="sitcom">Sitcom</option>, <option value="social">Social</option>, <option value="sports">Sports</option>, <option value="espionnage">Spy</option>, <option value="CaptationTheatrale">Stage live captation</option>, <option value="Supernaturel">Supernatural</option>, <option value="supsense">Thriller</option>, <option value="voyagetemps">Time Slip/Time Travel</option>, <option value="Universite">University</option>, <option value="Vampire">Vampire</option>, <option value="dramavariete">Variety drama</option>, <option value="violent">Violent</option>, <option value="guere">War</option>, <option value="webdrama">Web-drama</option>, <option value="webmovie">Web-movie</option>, <option value="western">Western</option>, <option value="jeunesse">Youth</option>, <option value="Zombie">Zombie</option>]
+[2024-06-11 17:00:01,981: WARNING/ForkPoolWorker-2] All The Genres are Fetched!
+[2024-06-11 17:00:01,982: INFO/ForkPoolWorker-2] Task get_all_genres_everyday[dcf12648-f97e-4d71-9be8-02a2302c0a5d] succeeded in 1.4615727070013236s: None
+[2024-06-12 01:06:17,065: INFO/MainProcess] Task get_all_company_everyday[257fde3b-5fe5-4b78-a2eb-b20890da5399] received
+[2024-06-12 01:06:17,078: INFO/MainProcess] Task get_new_person_everyday[485692a9-aad2-40ab-8c54-2efe4d16e3e4] received
+[2024-06-12 01:06:17,087: INFO/MainProcess] Task get_new_kdrama_everyday[78ffe033-ed4c-4a34-b469-c01ed10d7e1b] received
+[2024-06-12 01:06:17,090: INFO/MainProcess] Task get_new_movie_everyday[f042a19e-a0de-46de-a98a-51a0b46de362] received
+[2024-06-12 01:06:17,094: ERROR/MainProcess] Received unregistered task of type 'update_kdrama'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'update_kdrama', 'id': 'ca5624c6-b8a2-48bc-aad5-4b3c7e182f08', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'ca5624c6-b8a2-48bc-aad5-4b3c7e182f08', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen30326@jay-Inspiron-15-3567', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'update_kdrama'
+[2024-06-12 01:06:17,119: ERROR/MainProcess] Received unregistered task of type 'update_movie'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'update_movie', 'id': '8b1bd0be-41a7-4ea6-a818-3ec84fba1c1c', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '8b1bd0be-41a7-4ea6-a818-3ec84fba1c1c', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen30326@jay-Inspiron-15-3567', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'update_movie'
+[2024-06-12 01:06:18,851: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php
+[2024-06-12 01:06:19,450: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=2
+[2024-06-12 01:06:20,428: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=3
+[2024-06-12 01:06:21,432: WARNING/ForkPoolWorker-2] All The Companies are Fetched!
+[2024-06-12 01:06:21,433: INFO/ForkPoolWorker-2] Task get_all_company_everyday[257fde3b-5fe5-4b78-a2eb-b20890da5399] succeeded in 4.363786366000568s: None
+[2024-06-12 01:06:21,479: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=4
+[2024-06-12 01:06:22,245: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=5
+[2024-06-12 01:06:22,387: ERROR/ForkPoolWorker-2] Task get_new_movie_everyday[f042a19e-a0de-46de-a98a-51a0b46de362] raised unexpected: ValueError("time data 'New' does not match format '%Y/%m/%d'")
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/tasks.py", line 80, in get_new_movie
+    total_new_links=get_movies_links_all(base_url,previous_date,today,dynamic_url)
+  File "/media/jay/New Volume/development_2022_2023/kmov/dramaclick/dataclick/cron_functions.py", line 118, in get_movies_links_all
+    current_datetime= datetime.strptime(single_link_tag.find('a').find('strong').text, '%Y/%m/%d')
+  File "/usr/lib/python3.8/_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "/usr/lib/python3.8/_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data 'New' does not match format '%Y/%m/%d'
+[2024-06-12 01:06:22,710: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=6
+[2024-06-12 01:06:23,459: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=7
+[2024-06-12 01:06:25,387: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=8
+[2024-06-12 01:06:26,224: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=9
+[2024-06-12 01:06:26,966: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=10
+[2024-06-12 01:06:27,719: WARNING/ForkPoolWorker-3] Got The all New Person from last 7 days!
+[2024-06-12 01:06:27,734: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=11
+[2024-06-12 01:06:27,746: INFO/ForkPoolWorker-3] Task get_new_person_everyday[485692a9-aad2-40ab-8c54-2efe4d16e3e4] succeeded in 10.634348055002192s: None
+[2024-06-12 01:06:28,585: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=12
+[2024-06-12 01:06:30,159: WARNING/ForkPoolWorker-1] https://www.hancinema.net/upcoming-korean-dramas.php?p=13

@@ -49,7 +49,7 @@ class DramaSerializer(ModelSerializer):
     dramaimages=DramaImagesSerializer(many=True,source='dramaimages_set')
     class Meta:
         model = Drama
-        fields = ['id','drama_name','image_url','other_names','dramaimages','airing_dates_start','airing_dates_end','official_website','last_paragraph','tv_channel','genres','directed_by','written_by','casts','extended_casts']
+        fields = ['id','drama_name','image_url','other_names','dramaimages','airing_dates_start','airing_dates_end','last_paragraph','tv_channel','genres','directed_by','written_by','casts','extended_casts']
 
 class MovieSerializerForPerson(ModelSerializer):
     genres=GenresSerializer(read_only=True, many=True)

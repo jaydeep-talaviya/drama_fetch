@@ -40,40 +40,31 @@ def get_companies_list(url,next_page=None):
             next_page = 'https://www.hancinema.net/'+ company.attrs.get('href')
             get_companies_list(url,next_page)
 
-
 #######################################################################3
-# get new drama links
+# get drama links
 
-
-
-def get_kmovies_links_all(url,previous_date,today,main_search_link):
-
-    total_kdrama_links=[]
+def get_kdrama_links_all(url, main_search_link):
     nest_asyncio.apply()
 
     session = HTMLSession()
     r = session.get(main_search_link)
     html_str = r.text
     soup = BeautifulSoup(html_str, 'html.parser')
-    links_from_genre=[]
-    main_content_of_links=soup.find('ul',attrs={'class':'list work_list'})
-    
-    links_tag_parent=main_content_of_links.find_all('div',attrs={'class':'work_info_short_poster'})
+    links_from_genre = []
+    main_content_of_links = soup.find('ul', attrs={'class': 'list work_list'})
+    print(main_search_link)
+    links_tag_parent = main_content_of_links.find_all('div', attrs={'class': 'work_info_short'})
     for single_link_tag in links_tag_parent:
-        current_datetime= datetime.strptime(single_link_tag.find('a').find('strong').text, '%Y/%m/%d')
-#         print(current_datetime,new_date,today)
-        if current_datetime >= previous_date and current_datetime <= today:
-            links_from_genre.append(single_link_tag.find('a').attrs['href'])
-        else:
-            return links_from_genre
-    page_nxt_btn=main_content_of_links.find_next('nav')
-    next_link=page_nxt_btn.find_next('a').attrs['href']
-    if len(list(filter(lambda x:x.text=="Next ›",page_nxt_btn.find_all('a'))))==1:
-        next_link=list(filter(lambda x:x.text=="Next ›",page_nxt_btn.find_all('a')))[0].attrs['href']
-        links_from_genre+=get_kmovies_links_all(url,previous_date,today,url+next_link)
+        airing_dates = single_link_tag.find('span', attrs={'itemprop': 'datePublished'}).text
+        # print(airing_dates, "airing_dates")
+        links_from_genre.append(single_link_tag.find('a').attrs['href'])
+
+    page_nxt_btn = main_content_of_links.find_next('nav')
+    if len(list(filter(lambda x: x.text == "Next ›", page_nxt_btn.find_all('a')))) == 1:
+        next_link = list(filter(lambda x: x.text == "Next ›", page_nxt_btn.find_all('a')))[0].attrs['href']
+        links_from_genre += get_kdrama_links_all(url, url + next_link)
     return links_from_genre
 
-                        
 
 ##########################################################
 def get_person_links_all(url,previous_date,today,main_search_link):
@@ -110,11 +101,8 @@ def get_person_links_all(url,previous_date,today,main_search_link):
 # Movie
 
 # get new Movies links
-# get new drama links
-
 
 def get_movies_links_all(url,previous_date,today,main_search_link):
-
     total_kdrama_links=[]
     nest_asyncio.apply()
 
@@ -141,19 +129,13 @@ def get_movies_links_all(url,previous_date,today,main_search_link):
     return links_from_genre
 
 
-
-
-################# Single person save into db s###################
-
-
 ############ single drama save into db $$$$$$$$$$$$$
 def get_single_drama_info(base_url,single_drama_link):
+    print(" started to get Drama ..",single_drama_link)
     all_genres=Genres.objects.all()
-
     nest_asyncio.apply()
     session = HTMLSession()
     r = session.get(base_url+'/'+single_drama_link)
-
     html_str = r.text
     
     soup = BeautifulSoup(html_str,'html.parser')
@@ -203,12 +185,6 @@ def get_single_drama_info(base_url,single_drama_link):
         airing_dates_end=False
         if len(airing_dates.split("~"))>1:
             airing_dates_end=airing_dates.split("~")[1]
-        # Official Website
-        official_website=''
-        try:
-            official_website=synopsis_div.find('ul',{'class':'link_list'}).find('a').attrs['href']
-        except:
-            pass
         # Paragraph synopsis
         last_paragraph=''
         try:
@@ -217,7 +193,6 @@ def get_single_drama_info(base_url,single_drama_link):
         except Exception as e:
             pass
 
-    #     print(last_paragraph)
         #main_casts
         cast_contents=main_content_div.find('div',{'class':'box cast_box'})
         # main_casts=cast_contents.find('ul',{'class':'list cast'})
@@ -229,26 +204,20 @@ def get_single_drama_info(base_url,single_drama_link):
         except:
             pass
 
-        # main_casts_names
-        # all_casts_div=main_casts.find_all('div',{'class':'work_info_short'})
-
 
         cast_actors_names=[]
         cast_actors_link=[]
         cast_actors_names_in_drama=[]
         try:
-    #         cast_actors_names=single_cast.find('a').text
-            cast_actors_names=list(map(lambda x:x.find('a').text,all_casts_div)) 
+            cast_actors_names=list(map(lambda x:x.find('a').text,all_casts_div))
         except:
             cast_actors_names=list(map(lambda x:x.find('i').text,all_casts_div)) 
         try:
-    #         cast_actors_link=single_cast.find('a').attrs['href']
-            cast_actors_link=list(map(lambda x:base_url+"/"+x.find('a').attrs['href'],all_casts_div)) 
+            cast_actors_link=list(map(lambda x:base_url+"/"+x.find('a').attrs['href'],all_casts_div))
         except:
             pass
         try:
-    #         cast_actors_names_in_drama=single_cast.find_all('p')[-2].text
-            cast_actors_names_in_drama=list(map(lambda x:x.find_all('p')[-1].text,all_casts_div)) 
+            cast_actors_names_in_drama=list(map(lambda x:x.find_all('p')[-1].text,all_casts_div))
         except:
             pass
 
@@ -260,28 +229,23 @@ def get_single_drama_info(base_url,single_drama_link):
         # save into db for castof drama
         casts=get_main_cast_info(cast_actors_names,cast_actors_names_in_drama)
         # other_casts_names
-        # other_casts_link=base_url+"/"+cast_contents.find('h4').find('a').attrs['href']
-        # other_cast_info=get_extra_cast_info(base_url,other_casts_link)
+
         other_cast_info=[]
         try:
             other_casts_link=base_url+"/"+cast_contents.find('h4').find('a').attrs['href']
             other_cast_info=get_extra_cast_info(base_url,other_casts_link)
         except:
             pass        # all_images_for_sintotal_action_dramagle_drama
-        # all_images_for_sintotal_action_dramagle_drama
         image_page_link=base_url+"/"+image_div.find('h4').find('a').attrs['href']
-    
 
 #       create new drama from here
         drama=Drama(drama_name=drama_name
                     ,image_url=main_theme_img,
                     other_names=other_names,
                     drama_link=str(base_url+'/'+single_drama_link),
-#     #                 genres=genres
                     tv_channel=tv_channel,
                     airing_dates_start=airing_dates_start,
                     airing_dates_end=airing_dates_end,
-                    official_website=official_website,
                     last_paragraph=str(last_paragraph)
                    )
 
@@ -298,9 +262,12 @@ def get_single_drama_info(base_url,single_drama_link):
         if other_cast_info:
             drama.extended_casts.add(*other_cast_info)
         drama.save()
-        
 
         image_of_single_drama=get_all_images_links(drama.id,image_page_link)
+        print(" Finished to get Drama ..", single_drama_link)
+    else:
+        print("Drama already exist",drama_name)
+
 
 def get_single_movie_info(base_url,single_movie_link):
     all_genres=Genres.objects.all()
@@ -503,11 +470,11 @@ def update_single_drama_info(base_url,single_drama_link):
         if len(airing_dates.split("~"))>1:
             airing_dates_end=airing_dates.split("~")[1].strip()
         # Official Website
-        official_website=''
-        try:
-            official_website=synopsis_div.find('ul',{'class':'link_list'}).find('a').attrs['href']
-        except:
-            pass
+        # official_website=''
+        # try:
+        #     official_website=synopsis_div.find('ul',{'class':'link_list'}).find('a').attrs['href']
+        # except:
+        #     pass
         # Paragraph synopsis
         last_paragraph=''
         try:
@@ -566,7 +533,7 @@ def update_single_drama_info(base_url,single_drama_link):
         current_drama.tv_channel=tv_channel
         current_drama.airing_dates_start=airing_dates_start
         current_drama.airing_dates_end=airing_dates_end
-        current_drama.official_website=official_website
+        # current_drama.official_website=official_website
         current_drama.last_paragraph=str(last_paragraph)
         current_drama.save()
         

@@ -61,7 +61,6 @@ def get_new_person_from_url(base_url,single_person_url):
         html_str = r.text
         soup = BeautifulSoup(html_str, 'html.parser')
         main_div=soup.find('main',attrs={'class':'main'})
-
         name=main_div.find('h1',attrs={'itemprop':'name'}).text
         old_person=Person.objects.filter(name=name).first()
         if not old_person:
@@ -211,7 +210,7 @@ def get_all_images_links(drama_id,image_page_link):
         image_content_ul=images_main_source.find('ul',{'class':'list person_list photo_list'})
         image_content_links=image_content_ul.find_all('a',{'data-fancybox':'gallery'})
         total_links_last=6 if len(image_content_links) >=6 else len(image_content_links)  
-        
+        # save drama images
         image_list_of_single_drama=list(map(lambda x:save_single_image_of_drama(drama_id,'https:'+x.attrs['href']),image_content_links[0:total_links_last]))
     except Exception as e:
         print(">>>>error",e,"at ",image_page_link)
