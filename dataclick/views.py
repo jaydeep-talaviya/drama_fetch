@@ -13,6 +13,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .helper_functions import is_date
 from datetime import datetime,timedelta
 from django.db.models import Q
+from rest_framework.pagination import PageNumberPagination
+
 # Create your views here.
 
 
@@ -27,9 +29,13 @@ class JobLists(APIView):
         """
         Return a list of all users.
         """
-        all_jobs=Jobs.objects.all()
-        serializer=JobsSerializer(all_jobs,many=True)
-        return Response(serializer.data)
+        all_jobs = Jobs.objects.all()
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  # You can also set this in settings.py
+
+        result_page = paginator.paginate_queryset(all_jobs, request)
+        serializer = JobsSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 class GenresLists(APIView):
 
@@ -38,8 +44,11 @@ class GenresLists(APIView):
         Return a list of all users.
         """
         all_genres=Genres.objects.all()
-        serializer=GenresSerializer(all_genres,many=True)
-        return Response(serializer.data)
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  # You can also set this in settings.py
+        result_page = paginator.paginate_queryset(all_genres, request)
+        serializer = GenresSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 class TvChannelsLists(APIView):
 
@@ -48,8 +57,11 @@ class TvChannelsLists(APIView):
         Return a list of all tv channels.
         """
         all_channel=TvChannel.objects.all()
-        serializer=TvChannelSerializer(all_channel,many=True)
-        return Response(serializer.data)
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  # You can also set this in settings.py
+        result_page = paginator.paginate_queryset(all_channel, request)
+        serializer = TvChannelSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 
 class PersonFilter(django_filters.FilterSet):
@@ -65,6 +77,7 @@ class PersonLists(generics.ListAPIView):
     search_fields = ['name','other_names']
     filter_backends = (filters.SearchFilter, DjangoFilterBackend)
     filterset_class = PersonFilter
+
 
 
 class DramaFilter(django_filters.FilterSet):

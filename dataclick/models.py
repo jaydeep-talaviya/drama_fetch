@@ -111,5 +111,5 @@ class Person(models.Model):
 class PersonImages(models.Model):
     # image_file = models.ImageField(upload_to='person_images',blank=True,null=True)
     image_url = models.URLField(blank=True,null=True)
-    person=models.ForeignKey(Person,on_delete=models.CASCADE,null=True,blank=True)
+    person=models.ForeignKey(Person,on_delete=models.CASCADE,null=True,blank=True,related_name='personimages')
 
