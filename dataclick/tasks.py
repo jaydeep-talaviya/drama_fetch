@@ -71,17 +71,25 @@ def get_all_kdrama(*args, **kwargs):
 
 @shared_task(name = "get_new_movie_everyday")
 def get_new_movie(*args, **kwargs):
-    next_two_year=datetime.today().year+2
-    dynamic_url='https://www.hancinema.net/all_korean_movies_dramas.php?srch=1&year_start=1936&year_end='+str(next_two_year)+'&genre=&work_type=movie&sort=recently_added'
-    previous_date=datetime.today()-timedelta(days=7)
-    today=datetime.today()
+    dynamic_url='https://www.hancinema.net/upcoming-korean-movies.php'
     base_url='https://www.hancinema.net'
-
-    total_new_links=get_movies_links_all(base_url,previous_date,today,dynamic_url)
+    total_new_links=get_movies_links_all(base_url,dynamic_url)
+    print(" Total Links...", len(total_new_links))
     for single_movie in total_new_links:
         get_single_movie_info(base_url,base_url+"/"+single_movie)
 
     print(f"Got The all New Movie from last 7 days!")
+
+@shared_task(name = "get_all_movie_once")
+def get_all_movie(*args, **kwargs):
+    dynamic_url='https://www.hancinema.net/all_korean_movies.php'
+    base_url='https://www.hancinema.net'
+    total_new_links=get_kdrama_links_all(base_url,dynamic_url)
+    print(" Total Links...",len(total_new_links))
+    for single_drama in total_new_links:
+        get_single_drama_info(base_url,single_drama)
+
+    print(f"Got The all drama !!! ")
 
 
 ########### Update $$$$$$$$$$$$$$$$$$$$$44
