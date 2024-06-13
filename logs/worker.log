@@ -1,10 +1,10 @@
  
  -------------- celery@jay-Inspiron-15-3567 v5.2.7 (dawn-chorus)
 --- ***** ----- 
--- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-13 14:38:59
+-- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-13 15:28:27
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         dramaclick:0x7fa7a0e69d00
+- ** ---------- .> app:         dramaclick:0x7fcef6c2f2e0
 - ** ---------- .> transport:   redis://localhost:6379//
 - ** ---------- .> results:     redis://localhost:6379/
 - *** --- * --- .> concurrency: 4 (prefork)
@@ -27,11 +27,46 @@
   . update_kdrama_everyday
   . update_movie_everyday
 
-[2024-06-13 14:39:00,295: INFO/MainProcess] Connected to redis://localhost:6379//
-[2024-06-13 14:39:00,299: INFO/MainProcess] mingle: searching for neighbors
-[2024-06-13 14:39:01,309: INFO/MainProcess] mingle: all alone
-[2024-06-13 14:39:01,335: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+[2024-06-13 15:28:28,172: INFO/MainProcess] Connected to redis://localhost:6379//
+[2024-06-13 15:28:28,177: INFO/MainProcess] mingle: searching for neighbors
+[2024-06-13 15:28:29,189: INFO/MainProcess] mingle: all alone
+[2024-06-13 15:28:29,215: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
             leak, never use this setting in production environments!
   warnings.warn('''Using settings.DEBUG leads to a memory
 
-[2024-06-13 14:39:01,335: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
+[2024-06-13 15:28:29,216: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+[2024-06-13 15:46:06,984: CRITICAL/MainProcess] Unrecoverable error: RuntimeError("reentrant call inside <_io.BufferedWriter name='<stderr>'>")
+Traceback (most recent call last):
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/worker.py", line 203, in start
+    self.blueprint.start(self)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 332, in start
+    blueprint.start(self)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 628, in start
+    c.loop(*c.loop_args())
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/kombu/asynchronous/hub.py", line 306, in create_loop
+    events = poll(poll_timeout)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/kombu/utils/eventio.py", line 81, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/apps/worker.py", line 289, in _handle_request
+    callback(worker)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/apps/worker.py", line 324, in on_SIGINT
+    safe_say('worker: Hitting Ctrl+C again will terminate all running tasks!')
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/apps/worker.py", line 82, in safe_say
+    print(f'\n{msg}', file=sys.__stderr__, flush=True)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/apps/worker.py", line 289, in _handle_request
+    callback(worker)
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/apps/worker.py", line 324, in on_SIGINT
+    safe_say('worker: Hitting Ctrl+C again will terminate all running tasks!')
+  File "/home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/apps/worker.py", line 82, in safe_say
+    print(f'\n{msg}', file=sys.__stderr__, flush=True)
+RuntimeError: reentrant call inside <_io.BufferedWriter name='<stderr>'>

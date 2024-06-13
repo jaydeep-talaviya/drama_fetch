@@ -14,6 +14,7 @@ from .helper_functions import is_date
 from datetime import datetime,timedelta
 from django.db.models import Q,Subquery,OuterRef,Count
 from rest_framework.pagination import PageNumberPagination
+from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample,OpenApiTypes
 
 # Create your views here.
 
@@ -25,6 +26,15 @@ from rest_framework.pagination import PageNumberPagination
 
 class JobLists(APIView):
 
+    @extend_schema(
+        responses=JobsSerializer,
+        parameters=[
+            OpenApiParameter(name='limit', description='Number of results to return per page.', required=False,
+                             type=OpenApiTypes.INT),
+            OpenApiParameter(name='offset', description='The initial index from which to return the results.',
+                             required=False, type=OpenApiTypes.INT),
+        ]
+    )
     def get(self, request, format=None):
         """
         Return a list of all users.
@@ -38,7 +48,15 @@ class JobLists(APIView):
         return paginator.get_paginated_response(serializer.data)
 
 class GenresLists(APIView):
-
+    @extend_schema(
+        responses=GenresSerializer,
+        parameters=[
+            OpenApiParameter(name='limit', description='Number of results to return per page.', required=False,
+                             type=OpenApiTypes.INT),
+            OpenApiParameter(name='offset', description='The initial index from which to return the results.',
+                             required=False, type=OpenApiTypes.INT),
+        ]
+    )
     def get(self, request, format=None):
         """
         Return a list of all users.
@@ -51,7 +69,15 @@ class GenresLists(APIView):
         return paginator.get_paginated_response(serializer.data)
 
 class TvChannelsLists(APIView):
-
+    @extend_schema(
+        responses=TvChannelSerializer,
+        parameters=[
+            OpenApiParameter(name='limit', description='Number of results to return per page.', required=False,
+                             type=OpenApiTypes.INT),
+            OpenApiParameter(name='offset', description='The initial index from which to return the results.',
+                             required=False, type=OpenApiTypes.INT),
+        ]
+    )
     def get(self, request, format=None):
         """
         Return a list of all tv channels.
@@ -164,7 +190,9 @@ class SingleMovie(generics.RetrieveAPIView):
 
 # upcomming movies
 class KdramaUpcomingLists(APIView):
-
+    @extend_schema(
+        responses=DramaSerializer,
+    )
     def get(self, request, format=None):
         """
         Return a list of all users.
@@ -178,7 +206,9 @@ class KdramaUpcomingLists(APIView):
 
 #  movies
 class KdramaNowAiringLists(APIView):
-
+    @extend_schema(
+        responses=DramaSerializer,
+    )
     def get(self, request, format=None):
         """
         Return a list of all users.
@@ -192,7 +222,9 @@ class KdramaNowAiringLists(APIView):
 
 
 class KdramaRecentlyCompletedLists(APIView):
-
+    @extend_schema(
+        responses=DramaSerializer,
+    )
     def get(self, request, format=None):
         today=datetime.now()
         date_after_2month = today + timedelta(days = 61)

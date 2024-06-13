@@ -1,6 +1,8 @@
 from rest_framework.serializers import ModelSerializer,SerializerMethodField,IntegerField,SlugRelatedField
 from .models import Jobs,Genres,Person,PersonImages,TvChannel,Drama,CastOfDrama,Movie,MovieImages,DramaImages
 from django.db.models import Q
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema_field,extend_schema_serializer
 
 class JobsSerializer(ModelSerializer):
     class Meta:
@@ -99,9 +101,11 @@ class PersonSerializer(ModelSerializer):
         model = Person
         fields = ['id','name','gender','jobs','other_names','personimages','dramas','movies']
 
+    @extend_schema_field(OpenApiTypes.INT)
     def get_dramas(self, obj):
         return obj.get_total_drama()
 
+    @extend_schema_field(OpenApiTypes.INT)
     def get_movies(self, obj):
         return obj.get_total_movie()
 
@@ -115,11 +119,13 @@ class PersonDetailSerializer(ModelSerializer):
         model = Person
         fields = ['id', 'name', 'gender', 'jobs', 'other_names', 'personimages', 'dramas', 'movies']
 
+    @extend_schema_field(MovieSerializerForPerson)
     def get_dramas(self, obj):
         return DramaSerializerForPerson(Drama.objects.filter(
             Q(casts__cast__id=obj.id) | Q(extended_casts__cast__id=obj.id) | Q(directed_by__id=obj.id) | Q(
                 written_by__id=obj.id)).distinct(), many=True).data
 
+    @extend_schema_field(MovieSerializerForPerson)
     def get_movies(self, obj):
         # print(">>>>",obj,Movie.objects.filter(Q(casts__cast__id=obj.id)|Q(extended_casts__cast__id=obj.id)|Q(directed_by__id=obj.id)|Q(written_by__id=obj.id)))
         return MovieSerializerForPerson(Movie.objects.filter(

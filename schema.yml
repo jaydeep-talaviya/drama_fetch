@@ -1,0 +1,806 @@
+openapi: 3.0.3
+info:
+  title: Your Project API
+  version: 1.0.0
+  description: Your project description
+paths:
+  /drama:
+    get:
+      operationId: drama_list
+      parameters:
+      - in: query
+        name: airing_dates_end
+        schema:
+          type: string
+      - in: query
+        name: airing_dates_start
+        schema:
+          type: string
+      - in: query
+        name: genres__genre_name
+        schema:
+          type: string
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: tv_channel__tv_channel
+        schema:
+          type: string
+      tags:
+      - drama
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDramaList'
+          description: ''
+  /drama/now_airing:
+    get:
+      operationId: drama_now_airing_retrieve
+      description: Return a list of all users.
+      tags:
+      - drama
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drama'
+          description: ''
+  /drama/recently_completed:
+    get:
+      operationId: drama_recently_completed_retrieve
+      tags:
+      - drama
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drama'
+          description: ''
+  /drama/single/{id}:
+    get:
+      operationId: drama_single_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - drama
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drama'
+          description: ''
+  /drama/upcoming:
+    get:
+      operationId: drama_upcoming_retrieve
+      description: Return a list of all users.
+      tags:
+      - drama
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drama'
+          description: ''
+  /genres:
+    get:
+      operationId: genres_retrieve
+      description: Return a list of all users.
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+        description: Number of results to return per page.
+      - in: query
+        name: offset
+        schema:
+          type: integer
+        description: The initial index from which to return the results.
+      tags:
+      - genres
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genres'
+          description: ''
+  /jobs:
+    get:
+      operationId: jobs_retrieve
+      description: Return a list of all users.
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+        description: Number of results to return per page.
+      - in: query
+        name: offset
+        schema:
+          type: integer
+        description: The initial index from which to return the results.
+      tags:
+      - jobs
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jobs'
+          description: ''
+  /movie:
+    get:
+      operationId: movie_list
+      parameters:
+      - in: query
+        name: airing_dates_end
+        schema:
+          type: string
+      - in: query
+        name: airing_dates_start
+        schema:
+          type: string
+      - in: query
+        name: genres__genre_name
+        schema:
+          type: string
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - movie
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMovieList'
+          description: ''
+  /movie/single/{id}:
+    get:
+      operationId: movie_single_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - movie
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+          description: ''
+  /person:
+    get:
+      operationId: person_list
+      parameters:
+      - in: query
+        name: gender
+        schema:
+          type: string
+          nullable: true
+          enum:
+          - Female
+          - Male
+        description: |-
+          * `Male` - Male
+          * `Female` - Female
+      - in: query
+        name: jobs__job_name
+        schema:
+          type: string
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - person
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPersonList'
+          description: ''
+  /person/single/{id}:
+    get:
+      operationId: person_single_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - person
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonDetail'
+          description: ''
+  /tvchannel:
+    get:
+      operationId: tvchannel_retrieve
+      description: Return a list of all tv channels.
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+        description: Number of results to return per page.
+      - in: query
+        name: offset
+        schema:
+          type: integer
+        description: The initial index from which to return the results.
+      tags:
+      - tvchannel
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TvChannel'
+          description: ''
+components:
+  schemas:
+    BlankEnum:
+      enum:
+      - ''
+    CastOfDrama:
+      type: object
+      properties:
+        cast:
+          allOf:
+          - $ref: '#/components/schemas/PersonSerializerForDrama'
+          readOnly: true
+        cast_name_in_drama:
+          type: string
+          nullable: true
+          maxLength: 2000
+      required:
+      - cast
+    Drama:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        drama_name:
+          type: string
+          nullable: true
+          maxLength: 200
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        other_names:
+          type: string
+          nullable: true
+          maxLength: 900
+        dramaimages:
+          type: array
+          items:
+            $ref: '#/components/schemas/DramaImages'
+        airing_dates_start:
+          type: string
+          nullable: true
+          maxLength: 500
+        airing_dates_end:
+          type: string
+          nullable: true
+          maxLength: 500
+        last_paragraph:
+          type: string
+          nullable: true
+        tv_channel:
+          allOf:
+          - $ref: '#/components/schemas/TvChannel'
+          readOnly: true
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genres'
+          readOnly: true
+        directed_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonSerializerForDrama'
+          readOnly: true
+        written_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonSerializerForDrama'
+          readOnly: true
+        casts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CastOfDrama'
+          readOnly: true
+        extended_casts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CastOfDrama'
+          readOnly: true
+      required:
+      - casts
+      - directed_by
+      - dramaimages
+      - extended_casts
+      - genres
+      - id
+      - tv_channel
+      - written_by
+    DramaImages:
+      type: object
+      properties:
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+    GenderEnum:
+      enum:
+      - Male
+      - Female
+      type: string
+      description: |-
+        * `Male` - Male
+        * `Female` - Female
+    Genres:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        genre_name:
+          type: string
+          nullable: true
+          maxLength: 100
+      required:
+      - id
+    Jobs:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        job_name:
+          type: string
+          nullable: true
+          maxLength: 100
+      required:
+      - id
+    Movie:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        movie_name:
+          type: string
+          nullable: true
+          maxLength: 200
+        other_names:
+          type: string
+          nullable: true
+          maxLength: 900
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        movieimages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieImages'
+        airing_date:
+          type: string
+          nullable: true
+          maxLength: 500
+        duration:
+          type: string
+          nullable: true
+          maxLength: 500
+        last_paragraph:
+          type: string
+          nullable: true
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genres'
+          readOnly: true
+        directed_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonSerializerForDrama'
+          readOnly: true
+        written_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonSerializerForDrama'
+          readOnly: true
+        casts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CastOfDrama'
+          readOnly: true
+        extended_casts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CastOfDrama'
+          readOnly: true
+      required:
+      - casts
+      - directed_by
+      - extended_casts
+      - genres
+      - id
+      - movieimages
+      - written_by
+    MovieImages:
+      type: object
+      properties:
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+    MovieSerializerForPerson:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        movie_name:
+          type: string
+          nullable: true
+          maxLength: 200
+        other_names:
+          type: string
+          nullable: true
+          maxLength: 900
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        airing_date:
+          type: string
+          nullable: true
+          maxLength: 500
+        duration:
+          type: string
+          nullable: true
+          maxLength: 500
+        last_paragraph:
+          type: string
+          nullable: true
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genres'
+          readOnly: true
+      required:
+      - genres
+      - id
+    NullEnum:
+      enum:
+      - null
+    PaginatedDramaList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Drama'
+    PaginatedMovieList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Movie'
+    PaginatedPersonList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 200
+        gender:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        jobs:
+          type: array
+          items:
+            type: string
+            nullable: true
+          readOnly: true
+        other_names:
+          type: string
+          nullable: true
+          maxLength: 600
+        personimages:
+          type: array
+          items:
+            type: string
+            format: uri
+            nullable: true
+          readOnly: true
+        dramas:
+          type: integer
+          readOnly: true
+        movies:
+          type: integer
+          readOnly: true
+      required:
+      - dramas
+      - id
+      - jobs
+      - movies
+      - personimages
+    PersonDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 200
+        gender:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Jobs'
+          readOnly: true
+        other_names:
+          type: string
+          nullable: true
+          maxLength: 600
+        personimages:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonImages'
+        dramas:
+          allOf:
+          - $ref: '#/components/schemas/MovieSerializerForPerson'
+          readOnly: true
+        movies:
+          allOf:
+          - $ref: '#/components/schemas/MovieSerializerForPerson'
+          readOnly: true
+      required:
+      - dramas
+      - id
+      - jobs
+      - movies
+      - personimages
+    PersonImages:
+      type: object
+      properties:
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+    PersonSerializerForDrama:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 200
+        gender:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+      required:
+      - id
+    TvChannel:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tv_channel:
+          type: string
+          nullable: true
+          maxLength: 500
+      required:
+      - id
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
