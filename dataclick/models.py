@@ -4,6 +4,7 @@ from urllib.request import urlopen
 from tempfile import NamedTemporaryFile
 # Create your models here.
 import requests
+from django.db.models import Q
 
 
 class Genres(models.Model):
@@ -28,7 +29,7 @@ class TvChannel(models.Model):
         return self.tv_channel
 
 class CastOfDrama(models.Model):
-    cast=models.ForeignKey('Person',on_delete=models.DO_NOTHING,null=True,blank=True)
+    cast=models.ForeignKey('Person',on_delete=models.DO_NOTHING,null=True,blank=True, db_index=True)
     cast_name_in_drama=models.CharField(max_length=2000,null=True,blank=True)
     extended_cast=models.BooleanField(default=False)
 
@@ -38,10 +39,10 @@ class Drama(models.Model):
     other_names=models.CharField(max_length=900,null=True,blank=True)
     genres=models.ManyToManyField(Genres,null=True,blank=True)
     tv_channel=models.ForeignKey(TvChannel,on_delete=models.DO_NOTHING,null=True,blank=True)
-    directed_by=models.ManyToManyField('Person',related_name='directors')
-    written_by=models.ManyToManyField('Person',related_name='writters')
-    casts=models.ManyToManyField('CastOfDrama',related_name='castsofdrama')
-    extended_casts=models.ManyToManyField('CastOfDrama',related_name='extendedcasts')
+    directed_by=models.ManyToManyField('Person',related_name='directors', db_index=True)
+    written_by=models.ManyToManyField('Person',related_name='writters', db_index=True)
+    casts=models.ManyToManyField('CastOfDrama',related_name='castsofdrama', db_index=True)
+    extended_casts=models.ManyToManyField('CastOfDrama',related_name='extendedcasts', db_index=True)
     airing_dates_start=models.CharField(max_length=500,null=True,blank=True)
     airing_dates_end=models.CharField(max_length=500,null=True,blank=True)
     last_paragraph=models.TextField(null=True,blank=True) # contain episodes
@@ -53,6 +54,7 @@ class Drama(models.Model):
 
     def __str__(self):
         return self.drama_name
+
 
 class DramaImages(models.Model):
     # image_file = models.ImageField(upload_to='drama_images',blank=True,null=True)
@@ -107,6 +109,12 @@ class Person(models.Model):
     gender=models.CharField(max_length=10,null=True,blank=True,choices=gender)
     jobs=models.ManyToManyField(Jobs,related_name='jobs')
     other_names=models.CharField(max_length=600,null=True,blank=True)
+
+    def get_total_drama(self):
+        return Drama.objects.filter(Q(casts__cast__id=self.id)|Q(extended_casts__cast__id=self.id)|Q(directed_by__id=self.id)|Q(written_by__id=self.id)).distinct().count()
+    def get_total_movie(self):
+        return Movie.objects.filter(Q(casts__cast__id=self.id)|Q(extended_casts__cast__id=self.id)|Q(directed_by__id=self.id)|Q(written_by__id=self.id)).distinct().count()
+
 
 class PersonImages(models.Model):
     # image_file = models.ImageField(upload_to='person_images',blank=True,null=True)

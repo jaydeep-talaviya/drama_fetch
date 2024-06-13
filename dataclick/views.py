@@ -6,13 +6,13 @@ from rest_framework import authentication, permissions
 from .models import Jobs,Genres,Person,PersonImages,TvChannel,Drama,CastOfDrama,Movie,MovieImages
 from .serializers import (JobsSerializer,GenresSerializer,
                             TvChannelSerializer,PersonSerializer,
-                            DramaSerializer,MovieSerializer)
+                            DramaSerializer,MovieSerializer,PersonDetailSerializer)
 from rest_framework import filters
 import django_filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .helper_functions import is_date
 from datetime import datetime,timedelta
-from django.db.models import Q
+from django.db.models import Q,Subquery,OuterRef,Count
 from rest_framework.pagination import PageNumberPagination
 
 # Create your views here.
@@ -71,7 +71,6 @@ class PersonFilter(django_filters.FilterSet):
         fields = ['gender', 'jobs__job_name']
 
 class PersonLists(generics.ListAPIView):
-
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
     search_fields = ['name','other_names']
@@ -152,7 +151,7 @@ class MovieLists(generics.ListAPIView):
 # single person by id
 class SinglePerson(generics.RetrieveAPIView):
     queryset = Person.objects.all()
-    serializer_class = PersonSerializer
+    serializer_class = PersonDetailSerializer
 
 class SingleDrama(generics.RetrieveAPIView):
     queryset = Drama.objects.all()
@@ -171,8 +170,11 @@ class KdramaUpcomingLists(APIView):
         Return a list of all users.
         """
         all_drama=Drama.objects.filter(Q(airing_dates_start='Upcoming')|Q(airing_dates_end='Upcoming'))
-        serializer=DramaSerializer(all_drama,many=True)
-        return Response(serializer.data)
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  # You can also set this in settings.py
+        result_page = paginator.paginate_queryset(all_drama, request)
+        serializer = DramaSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 #  movies
 class KdramaNowAiringLists(APIView):
@@ -182,8 +184,11 @@ class KdramaNowAiringLists(APIView):
         Return a list of all users.
         """
         all_drama=Drama.objects.filter(Q(airing_dates_start='Now airing')|Q(airing_dates_end='Now airing'))
-        serializer=DramaSerializer(all_drama,many=True)
-        return Response(serializer.data)
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  # You can also set this in settings.py
+        result_page = paginator.paginate_queryset(all_drama, request)
+        serializer = DramaSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 
 class KdramaRecentlyCompletedLists(APIView):
@@ -195,5 +200,8 @@ class KdramaRecentlyCompletedLists(APIView):
         Return a list of all users.
         """
         all_drama=Drama.objects.filter(Q(airing_dates_end__lte=today)|Q(airing_dates_end__gte=date_after_2month)|~Q(airing_dates_end=False)|~Q(airing_dates_start=False))
-        serializer=DramaSerializer(all_drama,many=True)
-        return Response(serializer.data)
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  # You can also set this in settings.py
+        result_page = paginator.paginate_queryset(all_drama, request)
+        serializer = DramaSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)

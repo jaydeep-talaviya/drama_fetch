@@ -40,6 +40,7 @@ class DramaImagesSerializer(ModelSerializer):
         fields = ['image_url']
 
 class DramaSerializer(ModelSerializer):
+
     genres=GenresSerializer(read_only=True, many=True)
     directed_by=PersonSerializerForDrama(read_only=True, many=True)
     written_by=PersonSerializerForDrama(read_only=True, many=True)
@@ -47,6 +48,7 @@ class DramaSerializer(ModelSerializer):
     extended_casts=CastOfDramaSerializer(read_only=True, many=True)
     tv_channel=TvChannelSerializer(read_only=True)
     dramaimages=DramaImagesSerializer(many=True,source='dramaimages_set')
+
     class Meta:
         model = Drama
         fields = ['id','drama_name','image_url','other_names','dramaimages','airing_dates_start','airing_dates_end','last_paragraph','tv_channel','genres','directed_by','written_by','casts','extended_casts']
@@ -62,16 +64,19 @@ class MovieSerializerForPerson(ModelSerializer):
         model = Movie
         fields=['movie_name','other_names','image_url','genres']
 
+class MovieSerializerForPerson(ModelSerializer):
+    genres=GenresSerializer(read_only=True, many=True)
+
+    class Meta:
+        model = Movie
+        fields=['id','movie_name','other_names','image_url','airing_date','duration','last_paragraph','genres']
+
 class DramaSerializerForPerson(ModelSerializer):
-    genres = SlugRelatedField(
-        many=True,
-        read_only=True,
-        slug_field='genre_name'
-    )
+    genres=GenresSerializer(read_only=True, many=True)
 
     class Meta:
         model = Drama
-        fields=['drama_name','other_names','image_url','genres']
+        fields=['id','drama_name','other_names','image_url','tv_channel','airing_dates_start','airing_dates_end','last_paragraph','genres']
 
 
 class PersonSerializer(ModelSerializer):
@@ -81,8 +86,8 @@ class PersonSerializer(ModelSerializer):
         read_only=True,
         slug_field='image_url'
     )
-    dramas = IntegerField(read_only=True)
-    movies = IntegerField(read_only=True)
+    dramas = SerializerMethodField()
+    movies = SerializerMethodField()
 
     jobs = SlugRelatedField(
         many=True,
@@ -95,13 +100,33 @@ class PersonSerializer(ModelSerializer):
         fields = ['id','name','gender','jobs','other_names','personimages','dramas','movies']
 
     def get_dramas(self, obj):
-        return Drama.objects.prefetch_related('casts','extended_casts','written_by').filter(Q(casts__cast__id=obj.id)|Q(extended_casts__cast__id=obj.id)|Q(directed_by__id=obj.id)|Q(written_by__id=obj.id)).distinct()
+        return obj.get_total_drama()
+
+    def get_movies(self, obj):
+        return obj.get_total_movie()
+
+class PersonDetailSerializer(ModelSerializer):
+    jobs = JobsSerializer(read_only=True, many=True)
+    personimages = PersonImagesSerializer(many=True)
+    dramas = SerializerMethodField()
+    movies = SerializerMethodField()
+
+    class Meta:
+        model = Person
+        fields = ['id', 'name', 'gender', 'jobs', 'other_names', 'personimages', 'dramas', 'movies']
+
+    def get_dramas(self, obj):
+        return DramaSerializerForPerson(Drama.objects.filter(
+            Q(casts__cast__id=obj.id) | Q(extended_casts__cast__id=obj.id) | Q(directed_by__id=obj.id) | Q(
+                written_by__id=obj.id)).distinct(), many=True).data
 
     def get_movies(self, obj):
         # print(">>>>",obj,Movie.objects.filter(Q(casts__cast__id=obj.id)|Q(extended_casts__cast__id=obj.id)|Q(directed_by__id=obj.id)|Q(written_by__id=obj.id)))
-        return Movie.objects.prefetch_related('casts','extended_casts','written_by').filter(Q(casts__cast__id=obj.id)|Q(extended_casts__cast__id=obj.id)|Q(directed_by__id=obj.id)|Q(written_by__id=obj.id)).distinct()
+        return MovieSerializerForPerson(Movie.objects.filter(
+            Q(casts__cast__id=obj.id) | Q(extended_casts__cast__id=obj.id) | Q(directed_by__id=obj.id) | Q(
+                written_by__id=obj.id)).distinct(), many=True).data
 
-        
+
 class MovieImagesSerializer(ModelSerializer):
     class Meta:
         model = MovieImages

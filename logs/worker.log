@@ -1,10 +1,10 @@
  
  -------------- celery@jay-Inspiron-15-3567 v5.2.7 (dawn-chorus)
 --- ***** ----- 
--- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-12 16:40:50
+-- ******* ---- Linux-5.15.0-107-generic-x86_64-with-glibc2.29 2024-06-13 14:38:59
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         dramaclick:0x7fb5e3b52d00
+- ** ---------- .> app:         dramaclick:0x7fa7a0e69d00
 - ** ---------- .> transport:   redis://localhost:6379//
 - ** ---------- .> results:     redis://localhost:6379/
 - *** --- * --- .> concurrency: 4 (prefork)
@@ -27,11 +27,11 @@
   . update_kdrama_everyday
   . update_movie_everyday
 
-[2024-06-12 16:40:51,064: INFO/MainProcess] Connected to redis://localhost:6379//
-[2024-06-12 16:40:51,067: INFO/MainProcess] mingle: searching for neighbors
-[2024-06-12 16:40:52,079: INFO/MainProcess] mingle: all alone
-[2024-06-12 16:40:52,111: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+[2024-06-13 14:39:00,295: INFO/MainProcess] Connected to redis://localhost:6379//
+[2024-06-13 14:39:00,299: INFO/MainProcess] mingle: searching for neighbors
+[2024-06-13 14:39:01,309: INFO/MainProcess] mingle: all alone
+[2024-06-13 14:39:01,335: WARNING/MainProcess] /home/jay/Downloads/kmov/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
             leak, never use this setting in production environments!
   warnings.warn('''Using settings.DEBUG leads to a memory
 
-[2024-06-12 16:40:52,112: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.
+[2024-06-13 14:39:01,335: INFO/MainProcess] celery@jay-Inspiron-15-3567 ready.

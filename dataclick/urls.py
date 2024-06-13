@@ -17,6 +17,7 @@ urlpatterns=[
     path('movie',MovieLists.as_view(),name='all_movie'),
 
     path('person/single/<int:pk>',SinglePerson.as_view(),name='single_person'),
+
     path('drama/single/<int:pk>',SingleDrama.as_view(),name='single_drama'),
     path('movie/single/<int:pk>',SingleMovie.as_view(),name='single_movie'),
 
